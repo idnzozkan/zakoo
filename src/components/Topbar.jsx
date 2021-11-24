@@ -108,7 +108,7 @@ const Language = styled.div`
 const Wishlist = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 36px;
     cursor: pointer;
     font-family: 'Josefin Sans', sans-serif;
     
@@ -120,7 +120,7 @@ const Wishlist = styled.div`
 const Cart = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 36px;
     cursor: pointer;
 `
 
