@@ -24,7 +24,7 @@ const Container = styled.section`
     margin: 50px 0; 
     width: 100%;
     height: 40vh;
-    background-image: url('https://i.imgur.com/EwpqYbF.jpg');
+    background-image: url('https://i.imgur.com/otO9vCD.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
