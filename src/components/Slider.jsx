@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { sliderItems } from '../data'
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@material-ui/icons'
 
 const Slider = () => {
@@ -7,7 +8,7 @@ const Slider = () => {
 
     const handleArrowClick = (direction) => {
         if (direction === "left") {
-            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1)
         } else {
             setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
         }
@@ -20,39 +21,19 @@ const Slider = () => {
             </Arrow>
 
             <Wrapper slideIndex={slideIndex}>
-                <Slide>
-                    <InfoContainer>
-                        <SmallTitle>Best Furniture For Your Castle....</SmallTitle>
-                        <MainTitle>New Furniture Collection Trends in 2021</MainTitle>
-                        <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer>
-                        <Image src="https://i.imgur.com/qW0jsNY.png" />
-                    </ImageContainer>
-                </Slide>
-                <Slide>
-                    <InfoContainer>
-                        <SmallTitle>Best Furniture For Your Castle....</SmallTitle>
-                        <MainTitle>New Trends In This Summer</MainTitle>
-                        <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer>
-                        <Image src="https://i.imgur.com/qW0jsNY.png" />
-                    </ImageContainer>
-                </Slide>
-                <Slide>
-                    <InfoContainer>
-                        <SmallTitle>Best Furniture For Your Castle....</SmallTitle>
-                        <MainTitle>Free Shipping On All Orders Over $100</MainTitle>
-                        <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer>
-                        <Image src="https://i.imgur.com/qW0jsNY.png" />
-                    </ImageContainer>
-                </Slide>
+                {sliderItems.map(item => (
+                    <Slide bgColor={item.bgColor} key={item.id}>
+                        <InfoContainer>
+                            <SmallTitle>{item.smallTitle}</SmallTitle>
+                            <MainTitle>{item.mainTitle}</MainTitle>
+                            <Description>{item.description}</Description>
+                            <Button>Shop Now</Button>
+                        </InfoContainer>
+                        <ImageContainer>
+                            <Image src={item.img} />
+                        </ImageContainer>
+                    </Slide>
+                ))}
             </Wrapper>
 
             <Arrow direction="right" onClick={() => handleArrowClick("right")}>
@@ -103,7 +84,7 @@ const Slide = styled.div`
     align-items: center;
     width: 100vw;
     height: calc(100vh - 122px);
-    background: #ecd2fa35;
+    background: ${props => props.bgColor};
     padding: 0 370px;
 `
 
