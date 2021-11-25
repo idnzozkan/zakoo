@@ -45,3 +45,54 @@ export const categories = [
     title: 'BACKPACK'
   }
 ]
+
+export const featuredProducts = [
+  {
+    id: 1,
+    img: 'https://i.imgur.com/0eWlkli.png',
+    name: 'Vel elit euismod',
+    price: '26.00'
+  },
+  {
+    id: 2,
+    img: 'https://i.imgur.com/Y0iPD75.png',
+    name: 'Ultricies condimentum imperdiet',
+    price: '42.00'
+  },
+  {
+    id: 3,
+    img: 'https://i.imgur.com/oL7MZBj.png',
+    name: 'Vitae suspendisse sed',
+    price: '30.00'
+  },
+  {
+    id: 4,
+    img: 'https://i.imgur.com/fuJK2e7.png',
+    name: 'Sed at fermentum',
+    price: '26.00'
+  },
+  {
+    id: 5,
+    img: 'https://i.imgur.com/siPjQHt.png',
+    name: 'Fusce pellentesque at',
+    price: '36.00'
+  },
+  {
+    id: 6,
+    img: 'https://i.imgur.com/avwl6Jz.png',
+    name: 'Vestibulum magna laoreet',
+    price: '54.00'
+  },
+  {
+    id: 7,
+    img: 'https://i.imgur.com/J4ux20g.png',
+    name: 'Sollicitudin amet orci',
+    price: '42.00'
+  },
+  {
+    id: 8,
+    img: 'https://i.imgur.com/gBgg5FG.png',
+    name: 'Ultrices mauris sit',
+    price: '15.00'
+  }
+]
