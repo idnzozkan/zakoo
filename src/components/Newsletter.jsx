@@ -69,6 +69,7 @@ const Button = styled.button`
     color: white;
     background-color: #FB2E86;
     padding: 8px;
+    cursor: pointer;
 `
 
 export default Newsletter
