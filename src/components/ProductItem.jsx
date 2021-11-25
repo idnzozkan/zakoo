@@ -67,6 +67,7 @@ const Icon = styled.div`
 
     &:hover {
         background: white;
+        filter: drop-shadow(0px 8px 40px rgba(49, 32, 138, 0.05));
     }
 `
 
