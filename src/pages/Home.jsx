@@ -1,23 +1,18 @@
 import React from 'react'
-import Topbar from '../components/Topbar'
-import Navbar from '../components/Navbar'
 import Slider from '../components/Slider'
 import Categories from '../components/Categories'
 import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
-import Footer from '../components/Footer'
+import MainLayout from '../layouts/MainLayout'
 
 const Home = () => {
     return (
-        <>
-            <Topbar />
-            <Navbar />
+        <MainLayout>
             <Slider />
             <Categories />
             <Products />
             <Newsletter />
-            <Footer />
-        </>
+        </MainLayout>
     )
 }
 
