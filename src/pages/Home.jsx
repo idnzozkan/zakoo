@@ -10,7 +10,7 @@ const Home = () => {
         <MainLayout>
             <Slider />
             <Categories />
-            <Products />
+            <Products title="Featured Products" />
             <Newsletter />
         </MainLayout>
     )
