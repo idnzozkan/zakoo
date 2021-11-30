@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Products from '../components/Products'
-import MainLayout from './MainLayout'
+import MainLayout from '../layouts/MainLayout'
 
 const CategoryProducts = () => {
     return (
