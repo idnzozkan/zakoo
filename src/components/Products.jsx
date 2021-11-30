@@ -23,10 +23,10 @@ const ProductsContainer = styled.div`
     grid-gap: 40px;
 `
 
-const Products = () => {
+const Products = ({ title }) => {
     return (
         <Container>
-            <Title>Featured Products</Title>
+            {title && (<Title>{title}</Title>)}
             <ProductsContainer>
                 {featuredProducts.map(product => (
                     <ProductItem product={product} key={product.id} />
