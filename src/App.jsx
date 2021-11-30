@@ -1,4 +1,4 @@
-import CategoryProducts from './layouts/CategoryProducts'
+import CategoryProducts from './pages/CategoryProducts'
 import Home from './pages/Home'
 
 const App = () => {
