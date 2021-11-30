@@ -1,10 +1,12 @@
 import CategoryProducts from './pages/CategoryProducts'
 import Home from './pages/Home'
+import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   return (
     <div>
-      <CategoryProducts />
+      <ProductDetails />
+      {/* <CategoryProducts /> */}
       {/* <Home /> */}
     </div>
   )
