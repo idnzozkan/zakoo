@@ -111,6 +111,7 @@ const AmountContainer = styled.div`
    display: flex;
    align-items: center;
    margin-right: 40px;
+   color: #151875;
    
    svg {
        background: #a9acc630;
@@ -132,6 +133,7 @@ const Amount = styled.span`
 const Button = styled.button`
     outline: none;
     border: 1px solid #151875;
+    color: #151875;
     background: white;
     padding: 10px;
     cursor: pointer;
