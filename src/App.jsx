@@ -1,13 +1,17 @@
 import CategoryProducts from './pages/CategoryProducts'
 import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   return (
     <div>
-      <ProductDetails />
+      <Register />
+      {/* <Login /> */}
+      {/* <ProductDetails /> */}
       {/* <CategoryProducts /> */}
-      {/* <Home /> */}
+      <Home />
     </div>
   )
 }
