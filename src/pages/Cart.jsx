@@ -34,13 +34,73 @@ const Cart = () => {
                                         <Amount>4</Amount>
                                         <Add />
                                     </AmountContainer>
-                                    <TotalPrice><b>Total:</b> $104.00</TotalPrice>
+                                    <TotalPrice>$104.00</TotalPrice>
+                                </PriceDetail>
+                            </Product>
+                            <Hr />
+                            <Product>
+                                <Image src="https://i.imgur.com/0eWlkli.png" />
+                                <ProductInfo>
+                                    <ProductName>Vel elit euismod</ProductName>
+                                    <ProductColor>
+                                        <b>Color:</b>
+                                        <SelectedColor color="gray" />
+                                    </ProductColor>
+                                    <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                </ProductInfo>
+                                <PriceDetail>
+                                    <AmountContainer>
+                                        <Remove />
+                                        <Amount>4</Amount>
+                                        <Add />
+                                    </AmountContainer>
+                                    <TotalPrice>$104.00</TotalPrice>
+                                </PriceDetail>
+                            </Product>
+                            <Hr />
+                            <Product>
+                                <Image src="https://i.imgur.com/0eWlkli.png" />
+                                <ProductInfo>
+                                    <ProductName>Vel elit euismod</ProductName>
+                                    <ProductColor>
+                                        <b>Color:</b>
+                                        <SelectedColor color="gray" />
+                                    </ProductColor>
+                                    <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                </ProductInfo>
+                                <PriceDetail>
+                                    <AmountContainer>
+                                        <Remove />
+                                        <Amount>4</Amount>
+                                        <Add />
+                                    </AmountContainer>
+                                    <TotalPrice>$104.00</TotalPrice>
                                 </PriceDetail>
                             </Product>
                             <Hr />
                         </Info>
                         <Summary>
-                            s
+                            <SummaryItem>
+                                <SummaryText>Subtotal</SummaryText>
+                                <SummaryPrice>$416.00</SummaryPrice>
+                            </SummaryItem>
+                            <SummaryLine />
+                            <SummaryItem>
+                                <SummaryText>Estimated Shipping</SummaryText>
+                                <SummaryPrice>$10.00</SummaryPrice>
+                            </SummaryItem>
+                            <SummaryLine />
+                            <SummaryItem>
+                                <SummaryText>Shipping Discount</SummaryText>
+                                <SummaryPrice type="discount">-$10.00</SummaryPrice>
+                            </SummaryItem>
+                            <SummaryLine />
+                            <SummaryItem type="total">
+                                <SummaryText>Total</SummaryText>
+                                <SummaryPrice>$416.00</SummaryPrice>
+                            </SummaryItem>
+                            <SummaryLine />
+                            <Button>Proceed to Checkout</Button>
                         </Summary>
                     </Bottom>
                 </Wrapper>
@@ -101,7 +161,54 @@ const Info = styled.div`
 `
 
 const Summary = styled.div`
+    position: sticky;
+    top: 30px;
     flex: 1.75;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 50px;
+    padding: 20px;
+    background: #F4F4FC;
+    border-radius: 3px;
+    height: fit-content;
+    min-height: 30vh;
+`
+
+const SummaryItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    color: #1D3178;
+    font-size: 18px;
+    font-weight: ${props => props.type === 'total' && 700};
+    padding: 10px 0;
+`
+
+const SummaryText = styled.span``
+
+const SummaryPrice = styled.span`
+    color: ${props => props.type === 'discount' && '#16c969'};
+`
+
+const SummaryLine = styled.hr`
+    border: 1px solid #E8E6F180;
+    margin-bottom: 10px;
+`
+
+const Button = styled.button`
+    margin: 16px 0;
+    padding: 12px;
+    background: #19D16F;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 3px;
+    border: none;
+    outline-color: #16c969;
+
+    &:hover {
+        background: #16c969;
+    }
 `
 
 const Product = styled.div`
@@ -169,7 +276,7 @@ const AmountContainer = styled.div`
    display: flex;
    align-items: center;
    color: #151875;
-   margin-bottom: 12px;
+   margin-bottom: 16px;
 
    svg {
        background: #a9acc630;
@@ -189,9 +296,10 @@ const Amount = styled.span`
 `
 
 const TotalPrice = styled.span`
-    font-family: 'Josefin Sans', sans-serif;
     color: #151875;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
+    font-weight: 700;
 `
 
 const Hr = styled.hr`
