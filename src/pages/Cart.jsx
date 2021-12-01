@@ -129,6 +129,7 @@ const TopButton = styled.button`
     border-radius: 3px;
     border: ${props => props.type === 'checkout' ? 'none' : '1.25px solid #FB2E86'};
     background: ${props => props.type === 'checkout' ? '#19D16F' : 'white'};
+    outline-color: ${props => props.type === 'checkout' ? '#16c969' : '#e42377'};
     color: ${props => props.type === 'checkout' ? '#FFFFFF' : '#FB2E86'};
     cursor: pointer;
 
@@ -182,7 +183,7 @@ const SummaryItem = styled.div`
     font-size: 18px;
     font-weight: ${props => props.type === 'total' && 700};
     padding: 10px 0;
-`
+    `
 
 const SummaryText = styled.span``
 
@@ -201,6 +202,7 @@ const Button = styled.button`
     background: #19D16F;
     color: #FFFFFF;
     cursor: pointer;
+    text-transform: uppercase;
     font-weight: 700;
     border-radius: 3px;
     border: none;
