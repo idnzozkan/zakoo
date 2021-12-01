@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Facebook, Instagram, Twitter } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const Footer = () => {
     return (
@@ -106,12 +107,16 @@ const Top = styled.div`
     display: flex;
     padding: 94px 0;
     background: #EEEFFB;
+
+    ${xsmall({ flexDirection: 'column', alignItems: 'center', padding: '50px 0 30px 0' })}
 `
 
 const Left = styled.div`
     flex: 1;
     padding-left: 370px;
     padding-right: 70px;
+
+    ${xsmall({ padding: '0 20px', textAlign: 'center' })}
 `
 
 const Logo = styled.h2`
@@ -125,6 +130,8 @@ const Description = styled.p`
     line-height: 1.5;
     margin-top: 10px;
     padding-right: 50px;
+
+    ${xsmall({ padding: 0 })}
 `
 
 const ContactInfo = styled.p`
@@ -132,12 +139,16 @@ const ContactInfo = styled.p`
     line-height: 1.5;
     margin-top: 16px;
     padding-right: 50px;
+
+    ${xsmall({ padding: 0 })}
 `
 
 const Right = styled.div`
     flex: 1;
     display: flex;
     padding-right: 370px;
+
+    ${xsmall({ padding: '40px 20px 20px 20px' })}
 `
 
 const Categories = styled.div`
@@ -145,6 +156,8 @@ const Categories = styled.div`
     display: flex; 
     flex-direction: column;
     margin-right: 20px;
+
+    ${xsmall({ marginRight: '50px' })}
 `
 
 const CustomerCare = styled.div`
@@ -152,6 +165,8 @@ const CustomerCare = styled.div`
     display: flex; 
     flex-direction: column;
     margin-right: 20px;
+
+    ${xsmall({ marginRight: '50px' })}
 `
 
 const Pages = styled.div`
@@ -183,6 +198,8 @@ const Bottom = styled.div`
     align-items: center;
     padding: 10px 650px 10px 470px;
     background: #E7E4F8;
+
+    ${xsmall({ flexDirection: 'column', padding: '20px' })}
 `
 
 const Copyright = styled.p`
@@ -193,6 +210,8 @@ const Copyright = styled.p`
         text-decoration: none;
         color: #9DA0AE;
     }
+
+    ${xsmall({ marginBottom: '20px' })}
 `
 
 const SocialIcons = styled.div`
