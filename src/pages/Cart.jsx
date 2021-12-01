@@ -183,7 +183,7 @@ const SummaryItem = styled.div`
     font-size: 18px;
     font-weight: ${props => props.type === 'total' && 700};
     padding: 10px 0;
-    `
+`
 
 const SummaryText = styled.span``
 
