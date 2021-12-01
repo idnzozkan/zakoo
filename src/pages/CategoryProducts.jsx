@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Products from '../components/Products'
 import MainLayout from '../layouts/MainLayout'
+import { xsmall } from '../responsive'
 
 const CategoryProducts = () => {
     return (
@@ -42,21 +43,27 @@ const Title = styled.h2`
     padding: 100px 370px 0px 370px;
     font-family: "Josefin Sans", sans-serif;
     color: #151875;
+
+    ${xsmall({ padding: '60px 20px 20px 20px' })}
 `
 
 const FiltersContainer = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 20px 370px;
+
+    ${xsmall({ padding: '20px' })}
 `
 
 const Filter = styled.div`
+    ${xsmall({ display: 'flex', flexDirection: 'column' })}
 `
 
 const FilterText = styled.span`
     margin-right: 20px;
     color: #3F509E;
 
+    ${xsmall({ margin: '0 0 20px 0', fontSize: '18px' })}
 `
 
 const Select = styled.select`
