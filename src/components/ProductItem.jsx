@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FavoriteBorderOutlined, ShoppingCartOutlined, ZoomInOutlined } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const ProductItem = ({ product }) => {
     return (
@@ -91,6 +92,8 @@ const Image = styled.img`
     object-fit: contain;
     min-height: 100%;
     width: 60%;
+
+    ${xsmall({ width: '50%' })}
 `
 
 const InfoContainer = styled.div`
@@ -114,6 +117,8 @@ const Name = styled.span`
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
     width: 100%;
+
+    ${xsmall({ fontSize: '20px' })}
 `
 
 const Price = styled.span`
@@ -124,6 +129,8 @@ const Price = styled.span`
     font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
     margin-top: 10px;
+
+    ${xsmall({ fontSize: '18px' })}
 `
 
 export default ProductItem

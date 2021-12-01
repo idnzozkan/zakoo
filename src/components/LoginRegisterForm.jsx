@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { xsmall } from '../responsive'
 
 const LoginRegisterForm = ({ title, description, formType }) => {
     return (
@@ -15,7 +16,7 @@ const LoginRegisterForm = ({ title, description, formType }) => {
                         <Input placeholder="Password" type="password" />
                         <Link>Forgot your password?</Link>
                         <Button>Sign In</Button>
-                        <Link textAlign="center">Don’t you have an account? Create one now</Link>
+                        <Link textAlign="center">Don’t you have an account? Create one now!</Link>
                     </Form>
                 ) : (
                     <Form>
@@ -25,7 +26,7 @@ const LoginRegisterForm = ({ title, description, formType }) => {
                         <Input placeholder="Email" type="email" />
                         <Input placeholder="Password" type="password" />
                         <Input placeholder="Confirm Password" type="password" />
-                        <Aggreement textAlign="center">By creating an account, you agree to our <Link>Privacy Policy</Link></Aggreement>
+                        <Aggreement textAlign="center">By creating an account, you agree to our <Link><b>Privacy Policy</b></Link></Aggreement>
                         <Button>Register</Button>
                     </Form>
                 )
@@ -40,6 +41,8 @@ const Wrapper = styled.div`
     width: 40%;
     background: #FFFFFF;
     box-shadow: 0px 0px 25px 10px #F8F8FB;
+
+   ${xsmall({ padding: 0, width: '70%' })}
 `
 
 const TextContainer = styled.div`
@@ -58,6 +61,8 @@ const Description = styled.p`
     line-height: 37.5px;
     color: #9096B2;
     margin-bottom: 20px;
+
+   ${xsmall({ lineHeight: 1.75 })}
 `
 
 const Form = styled.form`
@@ -101,6 +106,8 @@ const Link = styled.a`
     &:hover {
         color: #7c83a3;
     }
+
+   ${xsmall({ fontSize: '15px' })}
 `
 
 const Aggreement = styled.span`

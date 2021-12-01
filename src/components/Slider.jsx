@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0)
@@ -49,6 +50,8 @@ const Container = styled.div`
     width: 100%;
     height: calc(100vh - 122px);
     overflow: hidden;
+
+    ${xsmall({ display: 'none' })}
 `
 
 const Arrow = styled.div`

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MainLayout from '../layouts/MainLayout'
 import { Add, Remove } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const Cart = () => {
     return (
@@ -20,62 +21,90 @@ const Cart = () => {
                         <Info>
                             <Product>
                                 <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <ProductInfo>
-                                    <ProductName>Vel elit euismod</ProductName>
-                                    <ProductColor>
-                                        <b>Color:</b>
-                                        <SelectedColor color="gray" />
-                                    </ProductColor>
-                                    <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                </ProductInfo>
-                                <PriceDetail>
-                                    <AmountContainer>
-                                        <Remove />
-                                        <Amount>4</Amount>
-                                        <Add />
-                                    </AmountContainer>
-                                    <TotalPrice>$104.00</TotalPrice>
-                                </PriceDetail>
+                                <DetailsContainer>
+                                    <ProductInfo>
+                                        <ProductName>Vel elit euismod</ProductName>
+                                        <ProductColor>
+                                            <b>Color:</b>
+                                            <SelectedColor color="gray" />
+                                        </ProductColor>
+                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                    </ProductInfo>
+                                    <PriceDetail>
+                                        <AmountContainer>
+                                            <Remove />
+                                            <Amount>4</Amount>
+                                            <Add />
+                                        </AmountContainer>
+                                        <TotalPrice>$104.00</TotalPrice>
+                                    </PriceDetail>
+                                </DetailsContainer>
                             </Product>
                             <Hr />
                             <Product>
                                 <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <ProductInfo>
-                                    <ProductName>Vel elit euismod</ProductName>
-                                    <ProductColor>
-                                        <b>Color:</b>
-                                        <SelectedColor color="gray" />
-                                    </ProductColor>
-                                    <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                </ProductInfo>
-                                <PriceDetail>
-                                    <AmountContainer>
-                                        <Remove />
-                                        <Amount>4</Amount>
-                                        <Add />
-                                    </AmountContainer>
-                                    <TotalPrice>$104.00</TotalPrice>
-                                </PriceDetail>
+                                <DetailsContainer>
+                                    <ProductInfo>
+                                        <ProductName>Vel elit euismod</ProductName>
+                                        <ProductColor>
+                                            <b>Color:</b>
+                                            <SelectedColor color="gray" />
+                                        </ProductColor>
+                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                    </ProductInfo>
+                                    <PriceDetail>
+                                        <AmountContainer>
+                                            <Remove />
+                                            <Amount>4</Amount>
+                                            <Add />
+                                        </AmountContainer>
+                                        <TotalPrice>$104.00</TotalPrice>
+                                    </PriceDetail>
+                                </DetailsContainer>
                             </Product>
                             <Hr />
                             <Product>
                                 <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <ProductInfo>
-                                    <ProductName>Vel elit euismod</ProductName>
-                                    <ProductColor>
-                                        <b>Color:</b>
-                                        <SelectedColor color="gray" />
-                                    </ProductColor>
-                                    <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                </ProductInfo>
-                                <PriceDetail>
-                                    <AmountContainer>
-                                        <Remove />
-                                        <Amount>4</Amount>
-                                        <Add />
-                                    </AmountContainer>
-                                    <TotalPrice>$104.00</TotalPrice>
-                                </PriceDetail>
+                                <DetailsContainer>
+                                    <ProductInfo>
+                                        <ProductName>Vel elit euismod</ProductName>
+                                        <ProductColor>
+                                            <b>Color:</b>
+                                            <SelectedColor color="gray" />
+                                        </ProductColor>
+                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                    </ProductInfo>
+                                    <PriceDetail>
+                                        <AmountContainer>
+                                            <Remove />
+                                            <Amount>4</Amount>
+                                            <Add />
+                                        </AmountContainer>
+                                        <TotalPrice>$104.00</TotalPrice>
+                                    </PriceDetail>
+                                </DetailsContainer>
+                            </Product>
+                            <Hr />
+                            <Product>
+                                <Image src="https://i.imgur.com/0eWlkli.png" />
+                                <DetailsContainer>
+                                    <ProductInfo>
+                                        <ProductName>Vel elit euismod</ProductName>
+                                        <ProductColor>
+                                            <b>Color:</b>
+                                            <SelectedColor color="gray" />
+                                        </ProductColor>
+                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
+                                    </ProductInfo>
+                                    <PriceDetail>
+                                        <AmountContainer>
+                                            <Remove />
+                                            <Amount>4</Amount>
+                                            <Add />
+                                        </AmountContainer>
+                                        <TotalPrice>$104.00</TotalPrice>
+                                    </PriceDetail>
+                                </DetailsContainer>
                             </Product>
                             <Hr />
                         </Info>
@@ -111,6 +140,8 @@ const Cart = () => {
 
 const Container = styled.div`
     padding: 50px 370px;
+
+   ${xsmall({ padding: '50px 20px' })}
 `
 
 const Wrapper = styled.div`
@@ -140,6 +171,7 @@ const TopButton = styled.button`
 `
 
 const TopTexts = styled.div`
+   ${xsmall({ display: 'none' })}
 `
 
 const TopText = styled.span`
@@ -154,6 +186,8 @@ const TopText = styled.span`
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+
+   ${xsmall({ flexDirection: 'column' })}
 `
 
 const Info = styled.div`
@@ -174,6 +208,8 @@ const Summary = styled.div`
     border-radius: 3px;
     height: fit-content;
     min-height: 30vh;
+
+   ${xsmall({ margin: 0 })}
 `
 
 const SummaryItem = styled.div`
@@ -216,6 +252,7 @@ const Button = styled.button`
 const Product = styled.div`
     display: flex;
     align-items: center;
+    padding: 12px 0;
 `
 
 const Image = styled.img`
@@ -226,13 +263,26 @@ const Image = styled.img`
     margin-right: 20px;
 `
 
+const DetailsContainer = styled.div`
+    flex: 2;
+    display: flex;
+    align-items: center;
+
+    ${xsmall({ flexDirection: 'column' })}
+`
+
 const ProductInfo = styled.div`
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+
+    ${xsmall({ margin: '20px 0' })}
 `
 
 const ProductName = styled.span`
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 16px;
     color: #000000;
@@ -240,39 +290,45 @@ const ProductName = styled.span`
 `
 
 const ProductColor = styled.div`
-    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     color: #A1A8C1;
+
+   ${xsmall({ fontSize: '14px' })}
 `
 
 const SelectedColor = styled.div`
     display: inline-block;
-    vertical-align: text-top;
     margin: 0 5px;
     border: 0.1px solid #00000020;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: ${props => props.color};
 `
 
 const UnitPrice = styled.span`
-    margin-top: 7px;
+    margin-top: 10px;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     color: #A1A8C1;
+
+    ${xsmall({ fontSize: '14px' })}
 `
 
 const PriceDetail = styled.div`
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-`
 
+    ${xsmall({ flexDirection: 'column-reverse', marginTop: '20px' })}
+`
 
 const AmountContainer = styled.div`
    display: flex;
@@ -291,6 +347,8 @@ const AmountContainer = styled.div`
         background: #a9acc650;
        }
    }
+ 
+    ${xsmall({ marginTop: '20px' })}
 `
 
 const Amount = styled.span`
@@ -305,7 +363,7 @@ const TotalPrice = styled.span`
 `
 
 const Hr = styled.hr`
-    margin-top: 30px;
+    margin: 15px 0;
     border: 0.5px solid #a9acc620;
 `
 
