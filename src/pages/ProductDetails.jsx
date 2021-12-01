@@ -2,6 +2,7 @@ import { Add, Remove } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import MainLayout from '../layouts/MainLayout'
+import { xsmall } from '../responsive'
 
 const ProductDetails = () => {
     return (
@@ -40,21 +41,29 @@ const ProductDetails = () => {
 
 const Container = styled.div`
     padding: 30px 370px;
+
+    ${xsmall({ padding: '20px' })}
 `
 
 const Wrapper = styled.div`
     display: flex;
+ 
+    ${xsmall({ flexDirection: 'column' })}
 `
 
 const ImageContainer = styled.div`
     flex: 1;
     margin-right: 30px;
+
+    ${xsmall({ marginRight: 0, marginBottom: '30px' })}
 `
 
 const Image = styled.img`
     width: 100%;
     height: 80vh;
     object-fit: cover;
+
+    ${xsmall({ height: '40vh' })}
 `
 
 const InfoContainer = styled.div`
@@ -72,12 +81,16 @@ const Description = styled.p`
     line-height: 1.5;
     color: #A9ACC6;
     margin: 20px 0 30px 0;
+
+    ${xsmall({ fontSize: '18px' })}
 `
 
 const Price = styled.span`
     font-family: 'Josefin Sans', sans-serif;
     font-size: 28px;
     color: #151875;
+
+    ${xsmall({ fontSize: '30px' })}
 `
 
 const FilterContainer = styled.div`
@@ -86,11 +99,15 @@ const FilterContainer = styled.div`
 
 const Filter = styled.div`
     display: flex;
-    `
+    
+    ${xsmall({ alignItems: 'center' })}
+`
 
 const FilterTitle = styled.span`
     margin-right: 5px;
-    `
+
+    ${xsmall({ marginRight: '10px', fontSize: '18px' })}
+`
 
 const ColorOption = styled.div`
     border: 0.1px solid #00000020;
@@ -100,11 +117,15 @@ const ColorOption = styled.div`
     border-radius: 50%;
     cursor: pointer;
     background-color: ${props => props.color};
+
+    ${xsmall({ marginRight: '10px', width: '25px', height: '25px' })}
 `
 
 const AddToCartContainer = styled.div`
     display: flex;
     align-items: center;
+
+    ${xsmall({ justifyContent: 'space-between' })}
 `
 
 const AmountContainer = styled.div`
@@ -123,7 +144,11 @@ const AmountContainer = styled.div`
        &:hover {
         background: #a9acc650;
        }
-   }
+   
+       ${xsmall({ fontSize: '26px' })}
+    }
+
+   ${xsmall({ fontSize: '18px' })}
 `
 
 const Amount = styled.span`
@@ -144,6 +169,8 @@ const Button = styled.button`
         background: #151875;
         color: white;
     }
+
+   ${xsmall({ fontSize: '16px' })}
 `
 
 export default ProductDetails
