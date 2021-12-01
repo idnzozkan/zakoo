@@ -2,6 +2,7 @@ import { Badge } from '@material-ui/core'
 import { FavoriteBorderOutlined, MailOutlined, PhoneOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { xsmall } from '../responsive'
 
 const Topbar = () => {
     return (
@@ -44,6 +45,8 @@ const Container = styled.div`
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     background: #7E33E0;
+    
+    ${xsmall({ height: 'fit-content' })};
 `
 
 const Wrapper = styled.div`
@@ -52,12 +55,16 @@ const Wrapper = styled.div`
     align-items: center;
     height: 100%;
     padding: 20px 370px;
+
+    ${xsmall({ flexWrap: 'wrap', padding: '12px 0', })};
 `
 
 const Left = styled.div`
     display: flex;
     align-items: center;
-    flex: 1;   
+    flex: 1;  
+
+    ${xsmall({ display: 'none' })}
 `
 
 const Mail = styled.div`
@@ -87,7 +94,9 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex: 1;   
+    flex: 1;
+
+    ${xsmall({ justifyContent: 'center' })}
 `
 
 const Language = styled.div`
