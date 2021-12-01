@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Search } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const Navbar = () => {
     return (
@@ -16,7 +17,7 @@ const Navbar = () => {
                 </Center>
                 <Right>
                     <SearchContainer>
-                        <Input />
+                        <Input placeholder="Search products" />
                         <SearchIconContainer>
                             <Search />
                         </SearchIconContainer>
@@ -30,12 +31,16 @@ const Navbar = () => {
 const Container = styled.div`
     height: 78px;
     background: #fff;
+
+    ${xsmall({ height: 'fit-content' })}
 `
 
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 20px 370px;
+
+    ${xsmall({ padding: '20px 0', flexDirection: 'column' })}
 `
 
 const Left = styled.div`
@@ -55,6 +60,8 @@ const Logo = styled.h1`
 const Center = styled.div`
     display: flex;
     flex: 2;
+    
+    ${xsmall({ flex: 1, margin: '14px 0' })}
 `
 
 const MenuItem = styled.div`
@@ -62,6 +69,8 @@ const MenuItem = styled.div`
     font-size: 16px;
     margin-right: 36px;
     cursor: pointer;
+
+    ${xsmall({ margin: '0 18px' })}
 `
 
 const Right = styled.div`
