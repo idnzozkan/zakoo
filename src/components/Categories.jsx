@@ -1,14 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { categories } from '../data'
+import { xsmall } from '../responsive'
 import CategoryItem from './CategoryItem'
-
-const Container = styled.section`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    margin: 50px 20px;
-`
 
 const Categories = () => {
     return (
@@ -20,4 +14,12 @@ const Categories = () => {
     )
 }
 
+const Container = styled.section`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 50px 20px;
+
+    ${xsmall({ gridTemplateColumns: '1fr' })}
+`
 export default Categories
