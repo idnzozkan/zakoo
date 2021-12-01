@@ -168,7 +168,7 @@ const Summary = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 50px;
+    margin: 50px 0 0 30px;
     padding: 20px;
     background: #F4F4FC;
     border-radius: 3px;
