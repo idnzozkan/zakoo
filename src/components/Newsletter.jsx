@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SendOutlined } from '@material-ui/icons'
+import { xsmall } from '../responsive'
 
 const Newsletter = () => {
     return (
@@ -10,7 +11,7 @@ const Newsletter = () => {
                     Get Latest Updates By Subscribing To Our Newsletter
                 </Text>
                 <InputContainer>
-                    <Input placeholder="Enter your email" />
+                    <Input placeholder="Enter your email" type="email" />
                     <Button>
                         <SendOutlined />
                     </Button>
@@ -46,12 +47,16 @@ const Text = styled.h3`
     font-size: 35px;
     font-family: 'Josefin Sans', sans-serif;
     width: 30%;
+
+    ${xsmall({ width: '100%', fontSize: '32px' })}
 `
 
 const InputContainer = styled.div`
     display: flex;
     margin-top: 20px;
     width: 20vw;
+
+    ${xsmall({ width: '90vw' })}
 `
 
 const Input = styled.input`
