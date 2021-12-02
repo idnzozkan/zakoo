@@ -4,26 +4,28 @@ const User = require('../models/user')
 const CryptoJS = require('crypto-js')
 
 // UPDATE
-router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
-  if (req.body.password) {
-    req.body.password = CryptoJS.AES.encrypt(
-      req.body.password,
-      env.process.PASSWORD_SECRET
-    ).toString()
-  }
+router.patch('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  const { username, email, password } = req.body
+
+  const dataToUpdate = {}
+  if (username) dataToUpdate.username = username
+  if (email) dataToUpdate.email = email
+  if (password)
+    dataToUpdate.password = CryptoJS.AES.encrypt(password, env.process.PASSWORD_SECRET).toString()
 
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       {
-        $set: req.body
+        $set: dataToUpdate
       },
       { new: true }
     )
 
     res.status(200).json(updatedUser)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -33,19 +35,21 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
     await User.findByIdAndDelete(req.params.id)
     res.status(200).json('User has been deleted')
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
 // GET A USER
-router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
+router.get('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const { password, ...otherData } = user._doc
 
     res.status(200).json(otherData)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -61,7 +65,8 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
 
     res.status(200).json(usersButPassword)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -88,7 +93,8 @@ router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
 
     res.status(200).json(data)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
