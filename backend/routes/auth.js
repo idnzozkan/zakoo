@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
     const savedUser = await newUser.save()
     res.status(201).json(savedUser)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
     console.log(err)
   }
 })
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
 
     res.status(200).json({ ...otherData, accessToken })
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
     console.log(err)
   }
 })

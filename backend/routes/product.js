@@ -11,7 +11,8 @@ router.post('/', verifyTokenAndAdmin, async (req, res) => {
 
     res.status(201).json(savedProduct)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -28,7 +29,8 @@ router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
 
     res.status(200).json(updatedProduct)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -38,18 +40,20 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
     await Product.findByIdAndDelete(req.params.id)
     res.status(200).json('Product has been deleted')
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
 // GET A PRODUCT
-router.get('/find/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
 
     res.status(200).json(product)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
@@ -64,14 +68,15 @@ router.get('/', async (req, res) => {
     if (queryNew) {
       products = await Product.find().sort({ createdAt: -1 }).limit(5)
     } else if (queryCategory) {
-      products = await Product.find({ categories: { $in: queryCategory } })
+      products = await Product.find({ categories: { $in: [queryCategory] } })
     } else {
       products = await Product.find()
     }
 
     res.status(200).json(products)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message)
+    console.log(err)
   }
 })
 
