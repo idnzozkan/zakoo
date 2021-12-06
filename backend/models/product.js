@@ -25,7 +25,11 @@ const ProductSchema = new mongoose.Schema(
       required: true
     },
     color: {
-      type: String
+      type: Array
+    },
+    isInStock: {
+      type: Boolean,
+      default: true
     }
   },
   { timestamps: true }
