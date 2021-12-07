@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { xsmall } from '../responsive'
 
@@ -8,7 +9,9 @@ const CategoryItem = ({ category }) => {
             <Image src={category.img} />
             <InfoSection>
                 <Title>{category.title}</Title>
-                <Button>SHOP NOW</Button>
+                <Link to={`/products/${category.title.toLowerCase()}`}>
+                    <Button>SHOP NOW</Button>
+                </Link>
             </InfoSection>
         </Container>
     )
@@ -45,6 +48,7 @@ const Title = styled.h3`
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     z-index: 4;
 `
+
 const Button = styled.button`
     outline: none;
     border: 1.5px solid white;
