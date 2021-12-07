@@ -1,34 +1,62 @@
+import React, { useEffect, useState } from 'react'
 import { Add, Remove } from '@material-ui/icons'
-import React from 'react'
+import { publicRequest } from '../requestMethods'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import MainLayout from '../layouts/MainLayout'
 import { xsmall } from '../responsive'
 
 const ProductDetails = () => {
+    const { pathname } = useLocation()
+    const id = pathname.split('/')[2]
+    const [product, setProduct] = useState({})
+    const [quantity, setQuantity] = useState(1)
+
+    const handleQuantity = (type) => {
+        if (type === 'increase') {
+            setQuantity(quantity + 1)
+        } else {
+            setQuantity(quantity > 1 ? quantity - 1 : 1)
+        }
+    }
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get(`/products/${id}`)
+                setProduct(res.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getProduct()
+    }, [id])
+
+
     return (
         <MainLayout>
             <Container>
                 <Wrapper>
                     <ImageContainer>
-                        <Image src="https://i.imgur.com/ctqu7Wm.jpg" />
+                        <Image src={product.image} />
                     </ImageContainer>
                     <InfoContainer>
-                        <Title>Playwood arm chair</Title>
-                        <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</Description>
-                        <Price>$26.00</Price>
+                        <Title>{product.title}</Title>
+                        <Description>{product.description}</Description>
+                        <Price>${product.price}</Price>
                         <FilterContainer>
                             <Filter>
                                 <FilterTitle>Color: </FilterTitle>
-                                <ColorOption color="gray" />
-                                <ColorOption color="black" />
-                                <ColorOption color="white" />
+                                {product.color?.map(c => (
+                                    <ColorOption color={c} key={c} />
+                                ))}
                             </Filter>
                         </FilterContainer>
                         <AddToCartContainer>
                             <AmountContainer>
-                                <Remove />
-                                <Amount>1</Amount>
-                                <Add />
+                                <Remove onClick={() => handleQuantity('decrease')} />
+                                <Amount>{quantity}</Amount>
+                                <Add onClick={() => handleQuantity('increase')} />
                             </AmountContainer>
                             <Button>Add to Cart</Button>
                         </AddToCartContainer>

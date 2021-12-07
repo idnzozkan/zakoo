@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { FavoriteBorderOutlined, ShoppingCartOutlined, ZoomInOutlined } from '@material-ui/icons'
 import { xsmall } from '../responsive'
 
@@ -11,17 +12,21 @@ const ProductItem = ({ product }) => {
                     <Icon>
                         <ShoppingCartOutlined />
                     </Icon>
-                    <Icon>
-                        <ZoomInOutlined />
-                    </Icon>
+                    <Link to={`/product/${product._id}`}>
+                        <Icon>
+                            <ZoomInOutlined />
+                        </Icon>
+                    </Link>
                     <Icon>
                         <FavoriteBorderOutlined />
                     </Icon>
                 </IconsContainer>
-                <Image src={product.img} />
+                <Image src={product.image} />
             </ImageContainer>
             <InfoContainer>
-                <Name>{product.name}</Name>
+                <Link to={`/product/${product._id}`}>
+                    <Name>{product.title}</Name>
+                </Link>
                 <Price>${product.price}</Price>
             </InfoContainer>
         </Container>
@@ -104,6 +109,14 @@ const InfoContainer = styled.div`
     justify-content: space-evenly;
     padding: 10px;
     width: 100%;
+
+    a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;     
+        text-decoration: none;
+    }
 `
 
 const Name = styled.span`

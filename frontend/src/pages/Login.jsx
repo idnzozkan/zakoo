@@ -3,8 +3,13 @@ import styled from 'styled-components'
 import LoginRegisterForm from '../components/LoginRegisterForm'
 import MainLayout from '../layouts/MainLayout'
 import { xsmall } from '../responsive'
+import { Navigate } from 'react-router-dom'
 
 const Login = () => {
+    let isUserLoggedIn = true
+
+    if (isUserLoggedIn) return <Navigate to="/" />
+
     return (
         <MainLayout>
             <Container>
