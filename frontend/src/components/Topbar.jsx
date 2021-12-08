@@ -1,10 +1,14 @@
-import { Badge } from '@material-ui/core'
-import { FavoriteBorderOutlined, MailOutlined, PhoneOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Badge } from '@material-ui/core'
 import styled from 'styled-components'
 import { xsmall } from '../responsive'
+import { FavoriteBorderOutlined, MailOutlined, PhoneOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 
 const Topbar = () => {
+    const productCountInCart = useSelector(state => state.cart.productCountInCart)
+
     return (
         <Container>
             <Wrapper>
@@ -28,11 +32,13 @@ const Topbar = () => {
                         Wishlist
                         <FavoriteBorderOutlined />
                     </Wishlist>
-                    <Cart>
-                        <Badge badgeContent={4} color="secondary" overlap="circular">
-                            <ShoppingCartOutlined />
-                        </Badge>
-                    </Cart>
+                    <Link to="/cart">
+                        <Cart>
+                            <Badge badgeContent={productCountInCart} color="secondary" overlap="circular">
+                                <ShoppingCartOutlined />
+                            </Badge>
+                        </Cart>
+                    </Link>
                 </Right>
             </Wrapper>
         </Container>
