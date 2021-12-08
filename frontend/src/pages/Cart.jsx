@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
+import { userRequest } from '../requestMethods'
 import MainLayout from '../layouts/MainLayout'
-import { Add, Remove } from '@material-ui/icons'
+import StripePay from '../components/StripePay'
 import { xsmall } from '../responsive'
+import { Add, Remove } from '@material-ui/icons'
 
 const Cart = () => {
+    const cart = useSelector(state => state.cart)
+    const [stripeToken, setStripeToken] = useState()
+    const navigate = useNavigate()
+
+    const onToken = (token) => {
+        setStripeToken(token)
+    }
+
+    useEffect(() => {
+        const checkoutRequest = async () => {
+            try {
+                const stripeResponse = await userRequest.post('/checkout/payment', {
+                    tokenId: stripeToken.id,
+                    amount: cart.totalPrice * 100
+                })
+                navigate('/success', { state: { stripeData: stripeResponse, orderData: cart } })
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        (stripeToken && cart.totalPrice) && checkoutRequest()
+    }, [stripeToken, cart, navigate])
+
     return (
         <MainLayout>
             <Container>
@@ -12,106 +39,46 @@ const Cart = () => {
                     <Top>
                         <TopButton>Continue Shopping</TopButton>
                         <TopTexts>
-                            <TopText>Shopping Bag (4)</TopText>
+                            <TopText>Shopping Bag ({cart.productCountInCart})</TopText>
                             <TopText>Your Wishlist (0)</TopText>
                         </TopTexts>
-                        <TopButton type="checkout" >Proceed to Checkout</TopButton>
+                        <StripePay cart={cart} onToken={onToken}>
+                            <TopButton type="checkout" >Proceed to Checkout</TopButton>
+                        </StripePay>
                     </Top>
                     <Bottom>
                         <Info>
-                            <Product>
-                                <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <DetailsContainer>
-                                    <ProductInfo>
-                                        <ProductName>Vel elit euismod</ProductName>
-                                        <ProductColor>
-                                            <b>Color:</b>
-                                            <SelectedColor color="gray" />
-                                        </ProductColor>
-                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                    </ProductInfo>
-                                    <PriceDetail>
-                                        <AmountContainer>
-                                            <Remove />
-                                            <Amount>4</Amount>
-                                            <Add />
-                                        </AmountContainer>
-                                        <TotalPrice>$104.00</TotalPrice>
-                                    </PriceDetail>
-                                </DetailsContainer>
-                            </Product>
-                            <Hr />
-                            <Product>
-                                <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <DetailsContainer>
-                                    <ProductInfo>
-                                        <ProductName>Vel elit euismod</ProductName>
-                                        <ProductColor>
-                                            <b>Color:</b>
-                                            <SelectedColor color="gray" />
-                                        </ProductColor>
-                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                    </ProductInfo>
-                                    <PriceDetail>
-                                        <AmountContainer>
-                                            <Remove />
-                                            <Amount>4</Amount>
-                                            <Add />
-                                        </AmountContainer>
-                                        <TotalPrice>$104.00</TotalPrice>
-                                    </PriceDetail>
-                                </DetailsContainer>
-                            </Product>
-                            <Hr />
-                            <Product>
-                                <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <DetailsContainer>
-                                    <ProductInfo>
-                                        <ProductName>Vel elit euismod</ProductName>
-                                        <ProductColor>
-                                            <b>Color:</b>
-                                            <SelectedColor color="gray" />
-                                        </ProductColor>
-                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                    </ProductInfo>
-                                    <PriceDetail>
-                                        <AmountContainer>
-                                            <Remove />
-                                            <Amount>4</Amount>
-                                            <Add />
-                                        </AmountContainer>
-                                        <TotalPrice>$104.00</TotalPrice>
-                                    </PriceDetail>
-                                </DetailsContainer>
-                            </Product>
-                            <Hr />
-                            <Product>
-                                <Image src="https://i.imgur.com/0eWlkli.png" />
-                                <DetailsContainer>
-                                    <ProductInfo>
-                                        <ProductName>Vel elit euismod</ProductName>
-                                        <ProductColor>
-                                            <b>Color:</b>
-                                            <SelectedColor color="gray" />
-                                        </ProductColor>
-                                        <UnitPrice><b>Unit Price:</b> $26.00</UnitPrice>
-                                    </ProductInfo>
-                                    <PriceDetail>
-                                        <AmountContainer>
-                                            <Remove />
-                                            <Amount>4</Amount>
-                                            <Add />
-                                        </AmountContainer>
-                                        <TotalPrice>$104.00</TotalPrice>
-                                    </PriceDetail>
-                                </DetailsContainer>
-                            </Product>
-                            <Hr />
+                            {cart.products.map(product => (
+                                <>
+                                    <Product>
+                                        <Image src={product.image} />
+                                        <DetailsContainer>
+                                            <ProductInfo>
+                                                <ProductName>{product.title}</ProductName>
+                                                <ProductColor>
+                                                    <b>Color:</b>
+                                                    <SelectedColor color={product.color} />
+                                                </ProductColor>
+                                                <UnitPrice><b>Unit Price:</b> ${product.price}</UnitPrice>
+                                            </ProductInfo>
+                                            <PriceDetail>
+                                                <AmountContainer>
+                                                    <Remove />
+                                                    <Amount>{product.quantity}</Amount>
+                                                    <Add />
+                                                </AmountContainer>
+                                                <TotalPrice>${product.price * product.quantity}</TotalPrice>
+                                            </PriceDetail>
+                                        </DetailsContainer>
+                                    </Product>
+                                    <Hr />
+                                </>
+                            ))}
                         </Info>
                         <Summary>
                             <SummaryItem>
                                 <SummaryText>Subtotal</SummaryText>
-                                <SummaryPrice>$416.00</SummaryPrice>
+                                <SummaryPrice>${cart.totalPrice}</SummaryPrice>
                             </SummaryItem>
                             <SummaryLine />
                             <SummaryItem>
@@ -126,10 +93,12 @@ const Cart = () => {
                             <SummaryLine />
                             <SummaryItem type="total">
                                 <SummaryText>Total</SummaryText>
-                                <SummaryPrice>$416.00</SummaryPrice>
+                                <SummaryPrice>${cart.totalPrice}</SummaryPrice>
                             </SummaryItem>
                             <SummaryLine />
-                            <Button>Proceed to Checkout</Button>
+                            <StripePay cart={cart} onToken={onToken}>
+                                <Button>Proceed to Checkout</Button>
+                            </StripePay>
                         </Summary>
                     </Bottom>
                 </Wrapper>
