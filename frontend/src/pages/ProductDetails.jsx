@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../store/cart'
 import { Add, Remove } from '@material-ui/icons'
 import { publicRequest } from '../requestMethods'
 import { useLocation } from 'react-router-dom'
@@ -7,10 +9,12 @@ import MainLayout from '../layouts/MainLayout'
 import { xsmall } from '../responsive'
 
 const ProductDetails = () => {
+    const dispatch = useDispatch()
     const { pathname } = useLocation()
     const id = pathname.split('/')[2]
     const [product, setProduct] = useState({})
     const [quantity, setQuantity] = useState(1)
+    const [color, setColor] = useState('')
 
     const handleQuantity = (type) => {
         if (type === 'increase') {
@@ -18,6 +22,10 @@ const ProductDetails = () => {
         } else {
             setQuantity(quantity > 1 ? quantity - 1 : 1)
         }
+    }
+
+    const handleAddToCart = () => {
+        dispatch(addProduct({ ...product, quantity, color }))
     }
 
     useEffect(() => {
@@ -48,7 +56,7 @@ const ProductDetails = () => {
                             <Filter>
                                 <FilterTitle>Color: </FilterTitle>
                                 {product.color?.map(c => (
-                                    <ColorOption color={c} key={c} />
+                                    <ColorOption color={c} key={c} onClick={() => setColor(c)} />
                                 ))}
                             </Filter>
                         </FilterContainer>
@@ -58,7 +66,7 @@ const ProductDetails = () => {
                                 <Amount>{quantity}</Amount>
                                 <Add onClick={() => handleQuantity('increase')} />
                             </AmountContainer>
-                            <Button>Add to Cart</Button>
+                            <Button onClick={handleAddToCart}>Add to Cart</Button>
                         </AddToCartContainer>
                     </InfoContainer>
                 </Wrapper>
