@@ -7,7 +7,7 @@ import { xsmall } from '../responsive'
 import { FavoriteBorderOutlined, MailOutlined, PhoneOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 
 const Topbar = () => {
-    const productCountInCart = useSelector(state => state.cart.productCountInCart)
+    const productCountInCart = useSelector(state => state.reducer.cart.productCountInCart)
 
     return (
         <Container>

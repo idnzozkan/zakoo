@@ -9,7 +9,7 @@ import { xsmall } from '../responsive'
 import { Add, Remove } from '@material-ui/icons'
 
 const Cart = () => {
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector(state => state.reducer.cart)
     const [stripeToken, setStripeToken] = useState()
     const navigate = useNavigate()
 
@@ -18,18 +18,19 @@ const Cart = () => {
     }
 
     useEffect(() => {
-        const checkoutRequest = async () => {
+        const makeCheckoutRequest = async () => {
             try {
                 const stripeResponse = await userRequest.post('/checkout/payment', {
                     tokenId: stripeToken.id,
                     amount: cart.totalPrice * 100
                 })
-                navigate('/success', { state: { stripeData: stripeResponse, orderData: cart } })
+                navigate('/success', { state: { stripeData: stripeResponse.data, orderData: cart } })
             } catch (error) {
                 console.log(error.message)
             }
         }
-        (stripeToken && cart.totalPrice) && checkoutRequest()
+        (stripeToken && cart.totalPrice > 0) && makeCheckoutRequest()
+
     }, [stripeToken, cart, navigate])
 
     return (
