@@ -73,7 +73,7 @@ const Footer = () => {
                 </Top>
                 <Bottom>
                     <Copyright>
-                        © 2021 Zakoo by <a href="https://www.github.com/idnzozkan/react-ecommerce-app" target="_blank"> Deniz Ozkan </a> - All Rights Reserved
+                        © 2021 Zakoo by <a href="https://www.github.com/idnzozkan/react-ecommerce-app" target="_blank" rel="noreferrer"> Deniz Ozkan </a> - All Rights Reserved
                     </Copyright>
                     <SocialIcons>
                         <Icon>
