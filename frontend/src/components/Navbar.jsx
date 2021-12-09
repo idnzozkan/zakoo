@@ -1,19 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { Search } from '@material-ui/icons'
 import { xsmall } from '../responsive'
+import { useLocation } from 'react-router'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+    const { pathname } = useLocation()
+    const loggedInUser = useSelector(state => state.reducer.user.loggedInUser)
+
     return (
         <Container>
             <Wrapper>
                 <Left>
-                    <Logo>Zakoo</Logo>
+                    <Link to="/">
+                        <Logo>Zakoo</Logo>
+                    </Link>
                 </Left>
                 <Center>
-                    <MenuItem isActive="true">Home</MenuItem>
-                    <MenuItem>Login</MenuItem>
-                    <MenuItem>Register</MenuItem>
+                    <Link to="/">
+                        <MenuItem isActive={pathname === '/' ? 'true' : ''}>Home</MenuItem>
+                    </Link>
+                    <Link to="/products">
+                        <MenuItem isActive={pathname === '/products' ? 'true' : ''}>Products</MenuItem>
+                    </Link>
+                    {
+                        !loggedInUser && (
+                            <>
+                                <Link to="/login">
+                                    <MenuItem isActive={pathname === '/login' ? 'true' : ''}>Login</MenuItem>
+                                </Link>
+                                <Link to="/register">
+                                    <MenuItem isActive={pathname === '/register' ? 'true' : ''}>Register</MenuItem>
+                                </Link>
+                            </>
+                        )
+                    }
                 </Center>
                 <Right>
                     <SearchContainer>
