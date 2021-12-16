@@ -1,0 +1,9 @@
+@import '../../../../../style/color-palette.scss';
+
+.active {
+  font-weight: 600;
+
+  li {
+    background-color: $light-gray;
+  }
+}
