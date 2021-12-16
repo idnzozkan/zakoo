@@ -1,0 +1,67 @@
+@import '../../../../style/color-palette.scss';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.navbar-container {
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 5rem;
+  -webkit-box-shadow: 0px 6px 30px -8px $shadow;
+  box-shadow: 0px 6px 30px -8px $shadow;
+  z-index: 999;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  #start {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .logo {
+      color: $primary;
+      font-family: 'Josefin Sans', sans-serif;
+      cursor: pointer;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+
+  #end {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navbar-item {
+      display: flex;
+      align-items: center;
+      margin-left: 1.25rem;
+      cursor: pointer;
+
+      svg {
+        color: $black;
+      }
+
+      .MuiBadge-dot {
+        background-color: $primary;
+      }
+
+      img {
+        cursor: pointer;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}
