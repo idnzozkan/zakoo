@@ -1,10 +1,16 @@
 import React from 'react'
-import MainLayout from '../../layouts/MainLayout/MainLayout'
+import './customers.scss'
+import MainLayout from '../../layouts/MainLayout'
+import CustomerList from '../../components/CustomerList'
 
 const Customers = () => {
     return (
         <MainLayout>
-            customers
+            <div className="customer-list-header">
+                <h1>Customers</h1>
+                <button>New</button>
+            </div>
+            <CustomerList />
         </MainLayout>
     )
 }
