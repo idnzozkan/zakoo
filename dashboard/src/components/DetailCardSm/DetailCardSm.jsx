@@ -27,7 +27,7 @@ const DetailCardSm = () => {
                     </li>
                     <li>
                         <Tooltip title="Phone Number" placement="right" arrow>
-                            <span><PhoneIphoneOutlinedIcon /> +1-123-456-7890</span>
+                            <span><PhoneIphoneOutlinedIcon /> +1-987-654-3210</span>
                         </Tooltip>
                     </li>
                     <li>

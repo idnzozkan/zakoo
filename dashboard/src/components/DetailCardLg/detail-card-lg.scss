@@ -12,4 +12,98 @@
     -webkit-box-shadow: 0px 6px 10px -8px $shadow;
     box-shadow: 0px 6px 10px -8px $shadow;
   }
+
+  &-title {
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: $black;
+    font-size: 1.25rem;
+  }
+}
+
+.update-area {
+  display: flex;
+}
+
+.update-inputs {
+  flex: 1;
+  margin-right: 2rem;
+
+  .update-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.7rem;
+
+    label {
+      color: $black;
+    }
+
+    input {
+      padding: 0.5rem 0;
+      border: none;
+      border-bottom: 1px solid $dark-gray;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $secondary;
+      }
+    }
+  }
+}
+
+.update-avatar {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  .upload-avatar {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+
+    img {
+      width: 175px;
+      height: 175px;
+      border-radius: 5px;
+      margin-right: 2.5rem;
+      object-fit: cover;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      background-color: $light-gray;
+      color: $black;
+      border: 1px solid #d1d1d1;
+      font-weight: 500;
+      height: fit-content;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 100ms;
+
+      &:hover {
+        background-color: #dfe2f1;
+        border: 1px solid #cdd1e6;
+      }
+    }
+  }
+}
+
+.detail-card-update-btn {
+  margin-top: 3rem;
+  cursor: pointer;
+  border: none;
+  color: $white;
+  background-color: $secondary;
+  outline-color: $primary;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  transition: all 150ms;
+
+  &:hover {
+    background-color: #2c56ff;
+  }
 }
