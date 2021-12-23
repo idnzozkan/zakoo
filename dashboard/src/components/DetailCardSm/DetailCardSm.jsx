@@ -5,6 +5,7 @@ import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined'
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
+import { Tooltip } from '@mui/material'
 
 const DetailCardSm = () => {
     return (
@@ -17,22 +18,32 @@ const DetailCardSm = () => {
                 </div>
             </div>
             <div className="detail-card-account-info">
-                <span className='title-account-info'>Account Details</span>
+                <span className='title-account-info'>User Details</span>
                 <ul>
                     <li>
-                        <span><PersonOutlineOutlinedIcon /> @idnzozkan</span>
+                        <Tooltip title="Username" placement="right" arrow>
+                            <span><PersonOutlineOutlinedIcon /> @idnzozkan</span>
+                        </Tooltip>
                     </li>
                     <li>
-                        <span><PhoneIphoneOutlinedIcon /> +1-123-456-7890</span>
+                        <Tooltip title="Phone Number" placement="right" arrow>
+                            <span><PhoneIphoneOutlinedIcon /> +1-987-654-3210</span>
+                        </Tooltip>
                     </li>
                     <li>
-                        <span><EmailOutlinedIcon /> deniz@mail.com</span>
+                        <Tooltip title="Email" placement="right" arrow>
+                            <span><EmailOutlinedIcon /> deniz@mail.com</span>
+                        </Tooltip>
                     </li>
                     <li>
-                        <span><FmdGoodOutlinedIcon /> San Jose, USA</span>
+                        <Tooltip title="Location" placement="right" arrow>
+                            <span><FmdGoodOutlinedIcon /> San Jose, USA</span>
+                        </Tooltip>
                     </li>
                     <li>
-                        <span><CakeOutlinedIcon /> 01/10/1990</span>
+                        <Tooltip title="Birthdate" placement="right" arrow>
+                            <span><CakeOutlinedIcon /> 01/10/1990</span>
+                        </Tooltip>
                     </li>
                 </ul>
 
