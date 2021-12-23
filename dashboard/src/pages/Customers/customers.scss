@@ -1,0 +1,30 @@
+@import '../../style/color-palette';
+
+.customer-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  h1 {
+    color: $black;
+    font-weight: 600;
+  }
+
+  button {
+    border: none;
+    padding: 0.25rem 1rem;
+    border-radius: 10px;
+    outline-color: $primary;
+    background-color: #385df0;
+    color: $white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+}
