@@ -1,82 +1,16 @@
 import React from 'react'
-import MainLayout from '../../layouts/MainLayout/MainLayout'
+import data from './chartData'
+import MainLayout from '../../layouts/MainLayout'
+import InfoCardWidgets from '../../components/InfoCardWidgets'
+import Chart from '../../components/Chart'
+import ListWidgets from '../../components/ListWidgets'
 
 const Home = () => {
     return (
         <MainLayout>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi a architecto eaque magnam quia distinctio, quam esse libero tempore, nam veritatis eos deleniti dignissimos nesciunt? Tempore reiciendis harum a saepe.</p>
+            <InfoCardWidgets />
+            <Chart title="Customer Analytics" data={data} xAxisDataKey="month" dataKey="New Customers" />
+            <ListWidgets />
         </MainLayout>
     )
 }
