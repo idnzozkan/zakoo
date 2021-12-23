@@ -1,0 +1,15 @@
+@import '../../style/color-palette';
+
+.list-widgets {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.list-widget-title {
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: $black;
+  font-size: 1.25rem;
+}
