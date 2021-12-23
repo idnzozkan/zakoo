@@ -1,0 +1,73 @@
+@import '../../../style/color-palette';
+
+.info-card-container {
+  flex: 1;
+  margin-right: 4rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: $white;
+  transition: all 300ms ease-in;
+  cursor: pointer;
+
+  &:hover {
+    -webkit-box-shadow: 0px 6px 10px -8px $shadow;
+    box-shadow: 0px 6px 10px -8px $shadow;
+    transform: scale(1.015);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+span.info-card-title,
+span.info-card-description {
+  color: $gray;
+}
+
+.info-card-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+
+  span.info-card-value {
+    color: $black;
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  span.info-card-percentage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.positive {
+  background-color: #dbf3eb;
+  color: #4ac39a;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+
+  svg {
+    margin-left: 0.12rem;
+    font-size: 1.2rem;
+    transform: rotate(45deg);
+  }
+}
+
+.negative {
+  background-color: #fbdddd;
+  color: #ed5454;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+
+  svg {
+    margin-left: 0.12rem;
+    font-size: 1.2rem;
+    transform: rotate(-45deg);
+  }
+}
