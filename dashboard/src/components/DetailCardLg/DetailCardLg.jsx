@@ -14,10 +14,6 @@ const DetailCardLg = () => {
                         <input type="text" placeholder='John Doe' />
                     </div>
                     <div className="update-input">
-                        <label>Title</label>
-                        <input type="text" placeholder='Software Engineer' />
-                    </div>
-                    <div className="update-input">
                         <label>Location</label>
                         <input type="text" placeholder='San Jose, USA' />
                     </div>

@@ -13,8 +13,8 @@ const DetailCardSm = () => {
             <div className='detail-card-user'>
                 <img src='https://randomuser.me/api/portraits/men/37.jpg' alt='User Avatar'></img>
                 <div className="detail-card-user-info">
-                    <span className='detail-card-user-name'>John Doe</span>
-                    <span className='detail-card-user-title'>Software Engineer</span>
+                    <span className='detail-card-user-fullname'>John Doe</span>
+                    <span className='detail-card-username'>@john_doe</span>
                 </div>
             </div>
             <div className="detail-card-account-info">
