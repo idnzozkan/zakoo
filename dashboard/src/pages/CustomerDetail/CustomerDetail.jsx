@@ -1,20 +1,15 @@
 import React from 'react'
 import './customer-detail.scss'
-import { useNavigate } from 'react-router-dom'
 import MainLayout from '../../layouts/MainLayout'
 import DetailCardSm from '../../components/DetailCardSm'
 import DetailCardLg from '../../components/DetailCardLg'
-import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined'
+import PageHeader from '../../components/PageHeader/PageHeader'
 
 const CustomerDetail = () => {
-    const navigate = useNavigate()
 
     return (
         <MainLayout>
-            <div className="customer-detail-header">
-                <h1>Edit User</h1>
-                <button onClick={() => navigate('/customers')}><ArrowBackIosOutlinedIcon /> Back</button>
-            </div>
+            <PageHeader title='Edit User' btnType='back' />
             <div className="customer-detail-wrapper">
                 <DetailCardSm />
                 <DetailCardLg />

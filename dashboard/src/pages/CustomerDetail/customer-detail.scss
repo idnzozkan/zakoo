@@ -1,41 +1,5 @@
 @import '../../style/color-palette';
 
-.customer-detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2rem;
-
-  h1 {
-    color: $black;
-    font-weight: 600;
-  }
-
-  button {
-    display: flex;
-    align-items: center;
-    border: 0;
-    padding: 0.25rem 1rem;
-    border-radius: 10px;
-    outline-color: $primary;
-    background-color: $gray;
-    color: $white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 200ms ease-out;
-
-    svg {
-      font-size: 1rem;
-      margin-right: 0.25rem;
-    }
-
-    &:hover {
-      background-color: $dark-gray;
-    }
-  }
-}
-
 .customer-detail-wrapper {
   display: flex;
   width: 100%;
