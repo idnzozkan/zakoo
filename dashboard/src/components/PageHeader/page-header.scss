@@ -1,0 +1,65 @@
+@import '../../style/color-palette';
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  h1 {
+    color: $black;
+    font-weight: 600;
+  }
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0.25rem 1rem;
+  border-radius: 10px;
+  outline-color: $primary;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.header-btn-new {
+  border: none;
+  padding: 0.25rem 1rem;
+  border-radius: 10px;
+  outline-color: $primary;
+  background-color: #385df0;
+  color: $white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.header-btn-back {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0.25rem 1rem;
+  border-radius: 10px;
+  outline-color: $primary;
+  background-color: $gray;
+  color: $white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+
+  svg {
+    font-size: 1rem;
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    background-color: $dark-gray;
+  }
+}
