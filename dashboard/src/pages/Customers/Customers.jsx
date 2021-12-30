@@ -1,15 +1,13 @@
 import React from 'react'
 import './customers.scss'
 import MainLayout from '../../layouts/MainLayout'
+import PageHeader from '../../components/PageHeader/PageHeader'
 import CustomerList from '../../components/CustomerList'
 
 const Customers = () => {
     return (
         <MainLayout>
-            <div className="customer-list-header">
-                <h1>Customers</h1>
-                <button>New</button>
-            </div>
+            <PageHeader title='Customers' btnPath='/customers/new' btnType='new' />
             <CustomerList />
         </MainLayout>
     )
