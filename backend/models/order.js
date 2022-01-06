@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 const OrderSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+      autopopulate: true
     },
     products: [
       {
@@ -27,10 +29,16 @@ const OrderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: 'Pending'
+      default: 'pending'
+    },
+    paymentId: {
+      type: String,
+      unique: true,
+      required: true
     }
   },
   { timestamps: true }
 )
 
+OrderSchema.plugin(require('mongoose-autopopulate'))
 module.exports = mongoose.model('Order', OrderSchema)
