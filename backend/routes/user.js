@@ -58,7 +58,7 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new
 
   try {
-    const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find()
+    const users = query ? await User.find().sort({ _id: -1 }).limit(4) : await User.find()
     const usersButPassword = users
       .map(({ _doc }) => _doc)
       .map(({ password, ...otherData }) => otherData)

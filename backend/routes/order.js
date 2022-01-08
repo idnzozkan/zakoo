@@ -5,7 +5,7 @@ const Order = require('../models/order')
 // CREATE
 router.post('/:id', verifyTokenAndAuthorization, async (req, res) => {
   const { id } = req.params
-  const { products, amount, address, status } = req.body
+  const { products, amount, address, paymentId, status } = req.body
 
   const orderToCreate = {}
 
@@ -13,6 +13,7 @@ router.post('/:id', verifyTokenAndAuthorization, async (req, res) => {
   orderToCreate.products = products
   orderToCreate.amount = amount
   orderToCreate.address = address
+  orderToCreate.paymentId = paymentId
   if (status) orderToCreate.status = status
 
   const newOrder = new Order(orderToCreate)
@@ -69,8 +70,10 @@ router.get('/user/:id', verifyTokenAndAuthorization, async (req, res) => {
 
 // GET ALL ORDERS
 router.get('/', verifyTokenAndAdmin, async (req, res) => {
+  const query = req.query.new
+
   try {
-    const orders = await Order.find()
+    const orders = query ? await Order.find().sort({ createdAt: -1 }).limit(4) : await Order.find()
 
     res.status(200).json(orders)
   } catch (err) {
