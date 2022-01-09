@@ -5,8 +5,7 @@ import { xsmall } from '../responsive'
 const RegisterForm = () => {
     return (
         <Form>
-            <Input placeholder="Name" />
-            <Input placeholder="Surname" />
+            <Input placeholder="Full Name" />
             <Input placeholder="Username" />
             <Input placeholder="Email" type="email" />
             <Input placeholder="Password" type="password" />
