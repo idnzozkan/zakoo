@@ -1,52 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './small-widget.scss'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
 import { Link } from 'react-router-dom'
+import { userRequest } from '../../../requestMethods'
 
 const SmallWidget = () => {
+    const [newUsers, setNewUsers] = useState(null)
+
+    useEffect(() => {
+        const fetchNewUsers = async () => {
+            try {
+                const res = await userRequest.get('/users?new=true')
+                setNewUsers(res.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchNewUsers()
+    }, [])
+
     return (
         <div className='small-widget'>
             <h3 className='list-widget-title'>New Users</h3>
-            <div className="sm-widget-user">
-                <img src='https://randomuser.me/api/portraits/men/37.jpg' alt='User Avatar'></img>
-                <div className="sm-widget-user-info">
-                    <span className='sm-widget-user-fullname'>John Doe</span>
-                    <span className='sm-widget-username'>@john_doe</span>
+            {newUsers?.map(u => (
+                <div className="sm-widget-user" key={u._id}>
+                    <img src={u.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt='User Avatar'></img>
+                    <div className="sm-widget-user-info">
+                        <span className='sm-widget-user-fullname'>Name</span>
+                        <span className='sm-widget-username'>@{u.username}</span>
+                    </div>
+                    <Link to={`/customers/${u._id}`}>
+                        <button><VisibilityOutlinedIcon /> Display</button>
+                    </Link>
                 </div>
-                <Link to="/customers/0">
-                    <button><VisibilityOutlinedIcon /> Display</button>
-                </Link>
-            </div>
-            <div className="sm-widget-user">
-                <img src='https://randomuser.me/api/portraits/women/68.jpg' alt='User Avatar'></img>
-                <div className="sm-widget-user-info">
-                    <span className='sm-widget-user-fullname'>Jane Smith</span>
-                    <span className='sm-widget-username'>@janesmith007</span>
-                </div>
-                <Link to="/customers/1">
-                    <button><VisibilityOutlinedIcon /> Display</button>
-                </Link>
-            </div>
-            <div className="sm-widget-user">
-                <img src='https://randomuser.me/api/portraits/men/83.jpg' alt='User Avatar'></img>
-                <div className="sm-widget-user-info">
-                    <span className='sm-widget-user-fullname'>Mike Anderson</span>
-                    <span className='sm-widget-username'>@crazymike20</span>
-                </div>
-                <Link to="/customers/2">
-                    <button><VisibilityOutlinedIcon /> Display</button>
-                </Link>
-            </div>
-            <div className="sm-widget-user">
-                <img src='https://randomuser.me/api/portraits/women/85.jpg' alt='User Avatar'></img>
-                <div className="sm-widget-user-info">
-                    <span className='sm-widget-user-fullname'>Dana Brown</span>
-                    <span className='sm-widget-username'>@iamdanabrown</span>
-                </div>
-                <Link to="/customers/3">
-                    <button><VisibilityOutlinedIcon /> Display</button>
-                </Link>
-            </div>
+            ))}
         </div>
     )
 }

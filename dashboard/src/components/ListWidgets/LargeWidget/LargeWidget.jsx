@@ -1,13 +1,30 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import './large-widget.scss'
+import { userRequest } from '../../../requestMethods'
+import moment from 'moment'
+import { Link } from 'react-router-dom'
 
 const LargeWidget = () => {
+    const [newOrders, setNewOrders] = useState()
+
+    useEffect(() => {
+        const fetchLatestOrders = async () => {
+            try {
+                const res = await userRequest.get('/orders?new=true')
+                setNewOrders(res.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchLatestOrders()
+    }, [])
 
     const Status = ({ type }) => <div className={`status ${type}`}>{type}</div>
 
     return (
         <div className='large-widget'>
-            <h3 className='list-widget-title'>Latest Transactions</h3>
+            <h3 className='list-widget-title'>Latest Orders</h3>
             <table className="lg-widget-table">
                 <thead>
                     <tr>
@@ -18,50 +35,21 @@ const LargeWidget = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className='lg-widget-table-row'>
-                        <td className='lg-widget-table-customer'>
-                            <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Customer Avatar" />
-                            Lance M. Wilson
-                        </td>
-                        <td className='lg-widget-table-date'>2021-12-17</td>
-                        <td className='lg-widget-table-amount'>$300.00</td>
-                        <td className='lg-widget-table-status'>
-                            <Status type="succeed" />
-                        </td>
-                    </tr>
-                    <tr className='lg-widget-table-row'>
-                        <td className='lg-widget-table-customer'>
-                            <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="Customer Avatar" />
-                            Dora Dorsey
-                        </td>
-                        <td className='lg-widget-table-date'>2021-12-17</td>
-                        <td className='lg-widget-table-amount'>$300.00</td>
-                        <td className='lg-widget-table-status'>
-                            <Status type="succeed" />
-                        </td>
-                    </tr>
-                    <tr className='lg-widget-table-row'>
-                        <td className='lg-widget-table-customer'>
-                            <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="Customer Avatar" />
-                            James Jackson
-                        </td>
-                        <td className='lg-widget-table-date'>2021-12-17</td>
-                        <td className='lg-widget-table-amount'>$300.00</td>
-                        <td className='lg-widget-table-status'>
-                            <Status type="pending" />
-                        </td>
-                    </tr>
-                    <tr className='lg-widget-table-row'>
-                        <td className='lg-widget-table-customer'>
-                            <img src="https://randomuser.me/api/portraits/women/61.jpg" alt="Customer Avatar" />
-                            Cori C. Wheeler
-                        </td>
-                        <td className='lg-widget-table-date'>2021-12-17</td>
-                        <td className='lg-widget-table-amount'>$300.00</td>
-                        <td className='lg-widget-table-status'>
-                            <Status type="succeed" />
-                        </td>
-                    </tr>
+                    {newOrders?.map(o => (
+                        <tr className='lg-widget-table-row' key={o._id}>
+                            <td className='lg-widget-table-customer'>
+                                <Link to={`/customers/${o.userId._id}`}>
+                                    <img src={o.userId.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt="Customer Avatar" />
+                                </Link>
+                                {o.userId.username}
+                            </td>
+                            <td className='lg-widget-table-date'>{moment(o.createdAt).format('MM-DD-yyyy')}</td>
+                            <td className='lg-widget-table-amount'>${o.amount}</td>
+                            <td className='lg-widget-table-status'>
+                                <Status type={o.status} />
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
