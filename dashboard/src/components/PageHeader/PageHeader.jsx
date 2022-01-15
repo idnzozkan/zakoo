@@ -15,11 +15,11 @@ const Button = ({ btnType, btnPath }) => {
     if (btnType === 'back') return <button className='header-btn header-btn-back' onClick={() => navigate(-1)}><ArrowBackIosOutlinedIcon /> Back</button>
 }
 
-const PageHeader = ({ title, btnPath, btnType }) => {
+const PageHeader = ({ title, hideBtn, btnPath, btnType }) => {
     return (
         <div className="page-header">
             <h1>{title}</h1>
-            <Button btnType={btnType} btnPath={btnPath} />
+            {!hideBtn && <Button btnType={btnType} btnPath={btnPath} />}
         </div >
     )
 }
