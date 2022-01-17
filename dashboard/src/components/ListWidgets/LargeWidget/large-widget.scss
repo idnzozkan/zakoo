@@ -53,21 +53,3 @@
     );
   }
 }
-
-.status {
-  padding: 0.25rem 0.5rem;
-  border-radius: 10px;
-  width: fit-content;
-  font-weight: 600;
-  font-size: 0.75rem;
-  text-transform: capitalize;
-
-  &.completed {
-    background-color: #d7f7c2;
-    color: #05690d;
-  }
-  &.pending {
-    background-color: #ebeef1;
-    color: #545a69;
-  }
-}

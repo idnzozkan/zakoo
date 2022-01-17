@@ -3,6 +3,7 @@ import './large-widget.scss'
 import { userRequest } from '../../../requestMethods'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import Status from '../../Status'
 
 const LargeWidget = () => {
     const [newOrders, setNewOrders] = useState()
@@ -19,8 +20,6 @@ const LargeWidget = () => {
 
         fetchLatestOrders()
     }, [])
-
-    const Status = ({ type }) => <div className={`status ${type}`}>{type}</div>
 
     return (
         <div className='large-widget'>
