@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { verifyTokenAndAdmin, verifyTokenAndAuthorization } = require('../middlewares/verifications')
 const Order = require('../models/order')
+const moment = require('moment')
 
 // CREATE
 router.post('/:id', verifyTokenAndAuthorization, async (req, res) => {
@@ -73,7 +74,9 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new
 
   try {
-    const orders = query ? await Order.find().sort({ createdAt: -1 }).limit(4) : await Order.find()
+    const orders = query
+      ? await Order.find().sort({ createdAt: -1 }).limit(4)
+      : await Order.find().sort({ createdAt: -1 })
 
     res.status(200).json(orders)
   } catch (err) {
@@ -82,16 +85,14 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
   }
 })
 
-// GET MONTHLY INCOME STATS
+// GET INCOME STATS
 router.get('/income', verifyTokenAndAdmin, async (req, res) => {
-  const date = new Date()
-  const lastMonth = new Date(date.setMonth(date.getMonth() - 1))
-  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1))
+  const twoMonthsAgo = moment().subtract(2, 'month').toDate()
 
   try {
     const income = await Order.aggregate([
       {
-        $match: { createdAt: { $gte: previousMonth } }
+        $match: { createdAt: { $gte: twoMonthsAgo } }
       },
       {
         $project: {
@@ -108,6 +109,83 @@ router.get('/income', verifyTokenAndAdmin, async (req, res) => {
     ])
 
     res.status(200).json(income)
+  } catch (err) {
+    res.status(500).json(err.message)
+    console.log(err)
+  }
+})
+
+// GET SALES PERFORMANCE STATS OF A PRODUCT
+router.get('/sales-performance', verifyTokenAndAdmin, async (req, res) => {
+  const threeMonthsAgo = moment().subtract(3, 'month').toDate()
+  const productId = req.query.product
+
+  try {
+    const income = await Order.aggregate([
+      {
+        $match: { createdAt: { $gte: threeMonthsAgo }, products: { $elemMatch: { productId } } }
+      },
+      {
+        $project: {
+          month: { $month: '$createdAt' },
+          sales: '$amount'
+        }
+      },
+      {
+        $group: {
+          _id: '$month',
+          totalIncome: { $sum: '$sales' }
+        }
+      }
+    ])
+
+    res.status(200).json(income)
+  } catch (err) {
+    res.status(500).json(err.message)
+    console.log(err)
+  }
+})
+
+// GET ORDER COUNT STATS
+router.get('/count', verifyTokenAndAdmin, async (req, res) => {
+  const twoMonthsAgo = moment().subtract(2, 'month').toDate()
+
+  try {
+    const count = await Order.aggregate([
+      {
+        $match: { createdAt: { $gte: twoMonthsAgo } }
+      },
+      {
+        $project: {
+          month: { $month: '$createdAt' }
+        }
+      },
+      {
+        $group: {
+          _id: '$month',
+          numberOfOrders: { $sum: 1 }
+        }
+      }
+    ])
+
+    res.status(200).json(count)
+  } catch (err) {
+    res.status(500).json(err.message)
+    console.log(err)
+  }
+})
+
+// GET AN ORDER
+router.get('/:orderId', verifyTokenAndAdmin, async (req, res) => {
+  const { orderId } = req.params
+
+  try {
+    const order = await Order.findById(orderId).populate({
+      path: 'products',
+      populate: { path: 'productId' }
+    })
+
+    res.status(200).json(order)
   } catch (err) {
     res.status(500).json(err.message)
     console.log(err)
