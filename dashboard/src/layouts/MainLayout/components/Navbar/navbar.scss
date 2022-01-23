@@ -64,5 +64,12 @@
         object-fit: cover;
       }
     }
+
+    button.navbar-item {
+      width: fit-content;
+      padding: 0;
+      border: none;
+      outline: none;
+    }
   }
 }
