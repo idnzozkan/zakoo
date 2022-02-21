@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../store/apiRequests'
+import './login.scss'
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -18,11 +19,14 @@ const Login = () => {
     }
 
     return (
-        <form>
-            <input type="text" name="username" placeholder='Username' onChange={e => handleChange(e)} />
-            <input type="password" name="password" placeholder='Password' onChange={e => handleChange(e)} />
-            <button type="submit" onClick={e => handleSubmit(e)}>Login</button>
-        </form>
+        <div className="login-form-wrapper">
+            <h1 className='logo'>Zakoo</h1>
+            <form>
+                <input type="text" name="username" placeholder='Username' onChange={e => handleChange(e)} />
+                <input type="password" name="password" placeholder='Password' onChange={e => handleChange(e)} />
+                <button type="submit" onClick={e => handleSubmit(e)}>Login</button>
+            </form>
+        </div>
     )
 }
 
