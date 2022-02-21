@@ -1,0 +1,54 @@
+@import '../../style/color-palette.scss';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $background;
+
+  .logo {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: $primary;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid $gray;
+      padding: 0.5rem;
+      color: $black;
+
+      &:focus {
+        outline-color: $secondary;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      outline-color: $primary;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      background: $secondary;
+      color: $white;
+      font-weight: 600;
+
+      &:hover {
+        background: $secondary-hover;
+      }
+    }
+  }
+}
