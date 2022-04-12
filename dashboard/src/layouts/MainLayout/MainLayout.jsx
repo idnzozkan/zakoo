@@ -3,6 +3,7 @@ import './main-layout.scss'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Content from './components/Content'
+import { Toaster } from 'react-hot-toast'
 
 const MainLayout = ({ children }) => {
     return (
@@ -11,6 +12,7 @@ const MainLayout = ({ children }) => {
             <div className="container">
                 <Sidebar />
                 <Content>
+                    <Toaster position='top-right' />
                     {children}
                 </Content>
             </div>
