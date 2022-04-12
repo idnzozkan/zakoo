@@ -1,23 +1,6 @@
 const router = require('express').Router()
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+const { postPayment } = require('../controllers/checkout')
 
-router.post('/payment', async (req, res) => {
-  await stripe.charges.create(
-    {
-      source: req.body.tokenId,
-      amount: req.body.amount,
-      currency: 'usd'
-    },
-    { apiKey: process.env.STRIPE_PRIVATE_KEY },
-    (stripeErr, stripeRes) => {
-      if (stripeErr) {
-        res.status(500).json(stripeErr)
-        console.log(stripeErr)
-      } else {
-        res.status(200).json(stripeRes)
-      }
-    }
-  )
-})
+router.post('/payment', postPayment)
 
 module.exports = router
