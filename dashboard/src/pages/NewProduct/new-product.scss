@@ -90,6 +90,7 @@
   }
 
   select {
+    background: $white;
     padding: 0.35rem;
     border-radius: 5px;
     border: 1px solid $gray;
@@ -152,6 +153,12 @@
     display: flex;
     align-items: center;
   }
+
+  p {
+    text-align: right;
+    color: $dark-gray;
+    font-weight: 300;
+  }
 }
 
 .create-btn {
@@ -167,5 +174,10 @@
 
   &:hover {
     background-color: $secondary-hover;
+  }
+
+  &:disabled {
+    background-color: $secondary-disabled;
+    cursor: progress;
   }
 }

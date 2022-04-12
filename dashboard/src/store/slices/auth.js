@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const userSlice = createSlice({
-  name: 'user',
+const authSlice = createSlice({
+  name: 'auth',
   initialState: {
     isLoading: false,
     loggedInUser: null,
@@ -18,9 +18,13 @@ const userSlice = createSlice({
     loginFailure: state => {
       state.isLoading = false
       state.isFailed = true
+    },
+    logoutSuccess: state => {
+      state.loggedInUser = null
+      // localStorage.removeItem('persist:auth')
     }
   }
 })
 
-export const { loginStart, loginSuccess, loginFailure } = userSlice.actions
-export default userSlice.reducer
+export const { loginStart, loginSuccess, loginFailure, logoutSuccess } = authSlice.actions
+export default authSlice.reducer

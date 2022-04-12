@@ -25,9 +25,9 @@ const SmallWidget = () => {
             <h3 className='list-widget-title'>New Users</h3>
             {newUsers?.map(u => (
                 <div className="sm-widget-user" key={u._id}>
-                    <img src={u.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt='User Avatar'></img>
+                    <img src={u.image || 'https://bit.ly/3i1HmGz'} alt='User Avatar'></img>
                     <div className="sm-widget-user-info">
-                        <span className='sm-widget-user-fullname'>Name</span>
+                        <span className='sm-widget-user-fullname'>{u.name}</span>
                         <span className='sm-widget-username'>@{u.username}</span>
                     </div>
                     <Link to={`/customers/${u._id}`}>

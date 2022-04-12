@@ -38,9 +38,9 @@ const LargeWidget = () => {
                         <tr className='lg-widget-table-row' key={o._id}>
                             <td className='lg-widget-table-customer'>
                                 <Link to={`/customers/${o.userId._id}`}>
-                                    <img src={o.userId.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt="Customer Avatar" />
+                                    <img src={o.userId.image || 'https://bit.ly/3i1HmGz'} alt="Customer Avatar" />
                                 </Link>
-                                {o.userId.username}
+                                {o.userId.name}
                             </td>
                             <td className='lg-widget-table-date'>{moment(o.createdAt).format('MM-DD-yyyy')}</td>
                             <td className='lg-widget-table-amount'>${o.amount}</td>

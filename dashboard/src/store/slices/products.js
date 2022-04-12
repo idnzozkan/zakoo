@@ -5,7 +5,6 @@ const productsSlice = createSlice({
   initialState: {
     isLoading: false,
     products: [],
-    product: null,
     isFailed: false
   },
   reducers: {
@@ -20,14 +19,14 @@ const productsSlice = createSlice({
       state.isLoading = false
       state.isFailed = true
     },
-    getProductStart: state => {
+    addProductStart: state => {
       state.isLoading = true
     },
-    getProductSuccess: (state, action) => {
+    addProductSuccess: (state, action) => {
       state.isLoading = false
-      state.product = action.payload
+      state.products.push(action.payload)
     },
-    getProductFailure: state => {
+    addProductFailure: state => {
       state.isLoading = false
       state.isFailed = true
     },
@@ -52,11 +51,11 @@ export const {
   getProductsStart,
   getProductsSuccess,
   getProductsFailure,
-  getProductStart,
-  getProductSuccess,
-  getProductFailure,
   deleteProductStart,
   deleteProductSuccess,
-  deleteProductFailure
+  deleteProductFailure,
+  addProductStart,
+  addProductSuccess,
+  addProductFailure
 } = productsSlice.actions
 export default productsSlice.reducer

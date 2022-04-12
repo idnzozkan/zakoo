@@ -19,6 +19,16 @@ const ordersSlice = createSlice({
       state.isLoading = false
       state.isFailed = true
     },
+    updateOrderStart: state => {
+      state.isLoading = true
+    },
+    updateOrderSuccess: state => {
+      state.isLoading = false
+    },
+    updateOrderFailure: state => {
+      state.isLoading = false
+      state.isFailed = true
+    },    
     deleteOrderStart: state => {
       state.isLoading = true
     },
@@ -40,6 +50,9 @@ export const {
   getOrdersStart,
   getOrdersSuccess,
   getOrdersFailure,
+  updateOrderStart,
+  updateOrderSuccess,
+  updateOrderFailure,  
   deleteOrderStart,
   deleteOrderSuccess,
   deleteOrderFailure

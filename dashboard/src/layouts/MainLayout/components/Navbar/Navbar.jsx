@@ -6,15 +6,26 @@ import { Badge, ListItemIcon } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Logout from '@mui/icons-material/Logout'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { logout } from '../../../../store/apiRequests'
 
 const Navbar = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = React.useState(null)
     const open = Boolean(anchorEl)
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
     }
     const handleClose = () => {
         setAnchorEl(null)
+    }
+    const handleLogout = () => {
+        logout(dispatch)
+        setAnchorEl(null)
+        navigate('/')
     }
 
     return (
@@ -48,7 +59,7 @@ const Navbar = () => {
                         id="account-menu"
                         open={open}
                         onClose={handleClose}
-                        onClick={handleClose}
+                        onClick={handleLogout}
                         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         PaperProps={{

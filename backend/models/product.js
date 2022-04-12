@@ -17,15 +17,15 @@ const ProductSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    categories: {
-      type: Array
+    category: {
+      type: String
     },
     price: {
       type: Number,
       required: true
     },
     color: {
-      type: Array
+      type: String
     },
     isInStock: {
       type: Boolean,

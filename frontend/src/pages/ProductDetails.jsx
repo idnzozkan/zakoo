@@ -14,7 +14,7 @@ const ProductDetails = () => {
     const id = pathname.split('/')[2]
     const [product, setProduct] = useState({})
     const [quantity, setQuantity] = useState(1)
-    const [color, setColor] = useState('')
+    const [selectedColor, setSelectedColor] = useState('')
 
     const handleQuantity = (type) => {
         if (type === 'increase') {
@@ -25,7 +25,7 @@ const ProductDetails = () => {
     }
 
     const handleAddToCart = () => {
-        dispatch(addProduct({ ...product, quantity, color }))
+        dispatch(addProduct({ ...product, quantity, selectedColor }))
     }
 
     useEffect(() => {
@@ -40,7 +40,6 @@ const ProductDetails = () => {
         getProduct()
     }, [id])
 
-
     return (
         <MainLayout>
             <Container>
@@ -53,12 +52,12 @@ const ProductDetails = () => {
                         <Description>{product.description}</Description>
                         <Price>${product.price}</Price>
                         <FilterContainer>
-                            <Filter>
-                                <FilterTitle>Color: </FilterTitle>
-                                {product.color?.map(c => (
-                                    <ColorOption color={c} key={c} onClick={() => setColor(c)} />
+                            {/* <Filter>
+                                <FilterTitle>selectedColor: </FilterTitle>
+                                {product.selectedColor?.map(c => (
+                                    <selectedColorOption selectedColor={c} key={c} onClick={() => setSelectedColor(c)} />
                                 ))}
-                            </Filter>
+                            </Filter> */}
                         </FilterContainer>
                         <AddToCartContainer>
                             <AmountContainer>
@@ -107,7 +106,7 @@ const InfoContainer = styled.div`
 `
 
 const Title = styled.h2`
-    color: #0D134E;
+    selectedColor: #0D134E;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 36px;
     line-height: 1.5;
@@ -115,7 +114,7 @@ const Title = styled.h2`
 
 const Description = styled.p`
     line-height: 1.5;
-    color: #A9ACC6;
+    selectedColor: #A9ACC6;
     margin: 20px 0 30px 0;
 
     ${xsmall({ fontSize: '18px' })}
@@ -124,7 +123,7 @@ const Description = styled.p`
 const Price = styled.span`
     font-family: 'Josefin Sans', sans-serif;
     font-size: 28px;
-    color: #151875;
+    selectedColor: #151875;
 
     ${xsmall({ fontSize: '30px' })}
 `
@@ -145,14 +144,14 @@ const FilterTitle = styled.span`
     ${xsmall({ marginRight: '10px', fontSize: '18px' })}
 `
 
-const ColorOption = styled.div`
+const selectedColorOption = styled.div`
     border: 0.1px solid #00000020;
     margin: 0 5px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: ${props => props.color};
+    background-selectedColor: ${props => props.selectedColor};
 
     ${xsmall({ marginRight: '10px', width: '25px', height: '25px' })}
 `
@@ -168,7 +167,7 @@ const AmountContainer = styled.div`
    display: flex;
    align-items: center;
    margin-right: 40px;
-   color: #151875;
+   selectedColor: #151875;
    
    svg {
        background: #a9acc630;
@@ -194,7 +193,7 @@ const Amount = styled.span`
 const Button = styled.button`
     outline: none;
     border: 1px solid #151875;
-    color: #151875;
+    selectedColor: #151875;
     background: white;
     padding: 10px;
     cursor: pointer;
@@ -203,7 +202,7 @@ const Button = styled.button`
 
     &:hover {
         background: #151875;
-        color: white;
+        selectedColor: white;
     }
 
    ${xsmall({ fontSize: '16px' })}

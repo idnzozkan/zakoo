@@ -8,7 +8,7 @@ import { deleteProduct, getProducts } from '../../store/apiRequests'
 
 const ProductList = () => {
     const dispatch = useDispatch()
-    const products = useSelector(state => state.reducer.products.products)
+    const products = useSelector(state => state.products.products)
 
     useEffect(() => {
         getProducts(dispatch)
@@ -41,8 +41,8 @@ const ProductList = () => {
         },
         { field: 'isInStock', headerName: 'Stock', width: 120, type: "boolean" },
         {
-            field: 'categories', headerName: 'Categories', width: 200, renderCell: (params) => {
-                return <p style={{ textTransform: 'capitalize' }}>{params.row.categories.toString()}</p>
+            field: 'category', headerName: 'Category', width: 200, renderCell: (params) => {
+                return <p style={{ textTransform: 'capitalize' }}>{params.row.category}</p>
             }
         },
         {
