@@ -4,7 +4,6 @@ import InfoCardWidgets from '../../components/InfoCardWidgets'
 import Chart from '../../components/Chart'
 import ListWidgets from '../../components/ListWidgets'
 import { userRequest } from '../../requestMethods'
-import chartData from './chartData'
 
 const Home = () => {
     const [userStats, setUserStats] = useState([])

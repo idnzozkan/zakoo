@@ -1,25 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import './order-detail.scss'
 import { Link, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import moment from 'moment'
+import toast from 'react-hot-toast'
 import { userRequest } from '../../requestMethods'
+import { updateOrder } from '../../store/apiRequests'
 import MainLayout from '../../layouts/MainLayout'
 import PageHeader from '../../components/PageHeader'
+import Loading from '../../components/Loading/Loading'
 
 const OrderDetail = () => {
     const [order, setOrder] = useState({})
     const { pathname } = useLocation()
+    const [isLoading, setIsLoading] = useState(true)
+    const [status, setStatus] = useState('')
+    const dispatch = useDispatch()
 
     useEffect(() => {
+        setIsLoading(true)
         const getOrder = async () => {
             const res = await userRequest.get(`/orders/${pathname.split('/')[2]}`)
             setOrder(res.data)
+            setIsLoading(false)
         }
 
         getOrder()
     }, [pathname])
 
-    console.log(order)
+    const handleUpdate = async (e) => {
+        e.preventDefault()
+        if (order && status) {
+            toast.promise(
+                updateOrder(dispatch, order._id, { status }),
+                {
+                    loading: 'Updating',
+                    success: 'Successfully updated',
+                    error: 'Error when updating'
+                }
+            )
+        }
+    }
 
     return (
         <MainLayout>
@@ -63,24 +84,26 @@ const OrderDetail = () => {
                     </table>
                 </div>
                 <div className="order-details-column-widgets">
-                    <div className="order-details-customer">
-                        <h3 className='order-details-widget-title'>Customer</h3>
-                        <div className="order-details-customer-wrapper">
-                            <div className="order-details-customer-info">
-                                <p>{order?.userId?.username}</p>
-                                <p>{order?.address?.line1}</p>
-                                <p>{order?.address?.line2}</p>
-                                <p>{order?.address?.city}, {order?.address?.state} {order?.address?.postal_code}</p>
-                                <p>{order?.address?.country}</p>
-                                <a href={`mailto:${order?.userId?.email}`} title='Customer Email Address'>
-                                    <p>{order?.userId?.email}</p>
-                                </a>
-                            </div>
-                            <div className="order-details-customer-image">
-                                <img src={order?.userId?.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt="Customer" />
+                    {isLoading ? (<Loading type="customer-card" />) : (
+                        <div className="order-details-customer">
+                            <h3 className='order-details-widget-title'>Customer</h3>
+                            <div className="order-details-customer-wrapper">
+                                <div className="order-details-customer-info">
+                                    <p>{order?.userId?.username}</p>
+                                    <p>{order?.address?.line1}</p>
+                                    <p>{order?.address?.line2}</p>
+                                    <p>{order?.address?.city}, {order?.address?.state} {order?.address?.postal_code}</p>
+                                    <p>{order?.address?.country}</p>
+                                    <a href={`mailto:${order?.userId?.email}`} title='Customer Email Address'>
+                                        <p>{order?.userId?.email}</p>
+                                    </a>
+                                </div>
+                                <div className="order-details-customer-image">
+                                    <img src={order?.userId?.image || 'https://bit.ly/3i1HmGz'} alt="Customer" />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                     <div className="order-details-info">
                         <h3 className='order-details-widget-title'>Order Details</h3>
                         <div className="order-details-info-wrapper">
@@ -91,20 +114,20 @@ const OrderDetail = () => {
                             <div className="order-details-info-item">
                                 <p className="order-details-info-item-title">Order Status:</p>
                                 <form>
-                                    <select name="order-status" id="order-status">
+                                    <select name="order-status" id="order-status" onChange={e => setStatus(e.target.value)}>
                                         {order?.status === 'pending' ? (
                                             <>
                                                 <option value="pending" selected>Pending</option>
-                                                <option value="pending">Completed</option>
+                                                <option value="completed">Completed</option>
                                             </>
                                         ) : (
                                             <>
                                                 <option value="pending">Pending</option>
-                                                <option value="pending" selected>Completed</option>
+                                                <option value="completed" selected>Completed</option>
                                             </>
                                         )}
                                     </select>
-                                    <button>Update</button>
+                                    <button onClick={handleUpdate}>Update</button>
                                 </form>
                             </div>
                             <div className="order-details-info-item">

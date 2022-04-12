@@ -123,6 +123,7 @@
         border-radius: 5px;
         border: 1px solid $gray;
         color: $dark-gray;
+        background: $white;
         font-weight: 500;
 
         &:focus {
@@ -201,6 +202,11 @@
 
       &:hover {
         background-color: $secondary-hover;
+      }
+
+      &:disabled {
+        background-color: $secondary-disabled;
+        cursor: progress;
       }
     }
   }
