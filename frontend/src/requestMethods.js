@@ -2,9 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:5000/api'
 
-const userFromLocalStorage =
-  localStorage.getItem('persist:root') &&
-  JSON.parse(JSON.parse(localStorage.getItem('persist:root')).user)
+const userFromLocalStorage = localStorage.getItem('persist:root') && JSON.parse(JSON.parse(localStorage.getItem('persist:root')).user)
 
 const TOKEN = userFromLocalStorage?.loggedInUser?.accessToken
 
