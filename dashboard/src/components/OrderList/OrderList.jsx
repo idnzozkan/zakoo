@@ -10,7 +10,7 @@ import Status from '../Status'
 
 const OrderList = () => {
     const dispatch = useDispatch()
-    const orders = useSelector(state => state.reducer.orders.orders)
+    const orders = useSelector(state => state.orders.orders)
 
     useEffect(() => {
         getOrders(dispatch)
@@ -30,8 +30,8 @@ const OrderList = () => {
             field: 'userId', headerName: 'User', width: 250, renderCell: (params) => {
                 return (
                     <div className='order-list-order-container'>
-                        <img src={params.row.userId.image || 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg'} alt="User" />
-                        <span>{params.row.userId.username}</span>
+                        <img src={params.row.userId.image || 'https://bit.ly/3i1HmGz'} alt="User" />
+                        <span>{params.row.userId.name}</span>
                     </div>
                 )
             }

@@ -1,17 +1,21 @@
 import React from 'react'
 import './info-card-widget.scss'
 
-const InfoCardWidget = ({ card }) => {
+const InfoCardWidget = ({ title, value, percentage, icon, description }) => {
     return (
         <div className='info-card-container'>
-            <span className="info-card-title">{card.title}</span>
+            <span className="info-card-title">{title}</span>
             <div className="info-card-value-container">
-                <span className='info-card-value'>{card.value}</span>
-                <span className={`info-card-percentage ${card.percentage.startsWith('-') ? 'negative' : 'positive'}`}>{card.percentage}
-                    {card.icon}
-                </span>
+                <span className='info-card-value'>{value}</span>
+                {
+                    !percentage.startsWith('0') ?
+                        <span className={`info-card-percentage ${percentage.startsWith('-') ? 'negative' : 'positive'}`}>{percentage}
+                            {icon}
+                        </span>
+                        : ''
+                }
             </div>
-            <span className="info-card-description">{card.description}</span>
+            <span className="info-card-description">{description}</span>
         </div>
     )
 }
