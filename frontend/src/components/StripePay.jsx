@@ -3,7 +3,6 @@ import StripeCheckout from "react-stripe-checkout"
 const StripePay = ({ children, cart, onToken }) => {
     return (
         <StripeCheckout
-
             name="Zakoo Inc."
             description="A MERN Stack E-Commerce App"
             image="https://i.imgur.com/EZNer2K.png"
