@@ -17,9 +17,9 @@ router.put('/:id', verifyTokenAndAdmin, updateOrder)
 router.delete('/:id', verifyTokenAndAdmin, deleteOrder)
 router.get('/user/:id', verifyTokenAndAuthorization, getUserOrders)
 router.get('/', verifyTokenAndAdmin, getOrders)
-router.get('/:id', verifyTokenAndAdmin, getOrder)
 router.get('/income', verifyTokenAndAdmin, getIncome)
 router.get('/sales-performance', verifyTokenAndAdmin, getSalesPerformance)
 router.get('/count', verifyTokenAndAdmin, getCount)
+router.get('/:id', verifyTokenAndAdmin, getOrder)
 
 module.exports = router
