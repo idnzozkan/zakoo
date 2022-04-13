@@ -1,5 +1,7 @@
 FROM node:16.14.0-alpine3.14 AS BUILDER
 
+ARG REACT_APP_STRIPE_PUBLIC_KEY
+
 WORKDIR /app
 
 COPY package.json package-lock.json yarn.lock ./
