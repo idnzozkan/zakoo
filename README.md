@@ -98,7 +98,7 @@ STRIPE_PRIVATE_KEY=
 
 ## Running Zakoo
 
-Go to the project directory, open your terminal and run the following command:
+Open your terminal, get to the project directory and run the following command:
 
 ```bash
 $ docker-compose up
